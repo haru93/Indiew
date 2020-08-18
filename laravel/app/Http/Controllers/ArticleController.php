@@ -14,7 +14,6 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        // $articles = Article::all();
         $articles = Article::orderBy('id', 'desc')->paginate(6);
 
         return view('articles.index', compact('articles'));
@@ -39,6 +38,12 @@ class ArticleController extends Controller
     public function store(Request $request)
     {
         $post = $request->all();
+
+        $validatedData = $request->validate([
+            'title' => 'required|max:255',
+            'body' => 'required',
+            'image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
         
         if ($request->hasFile('image')) {
             $request->file('image')->store('/public/images');
