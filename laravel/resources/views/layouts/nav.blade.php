@@ -1,6 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 	<div class="container">
 		<a class="navbar-brand" href="{{ url('/') }}">
+			<img class='navbar-logo' src="{{ asset('images/logo.png') }}">
 			{{ config('app.name', 'Laravel') }}
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -16,6 +17,9 @@
 			<!-- Right Side Of Navbar -->
 			<ul class="navbar-nav ml-auto">
 				<!-- Authentication Links -->
+				<li class="nav-item">
+					<a href="{{ route('articles.create') }}" class='nav-link'>景色を投稿する</a>
+				</li>
 				@guest
 					<li class="nav-item">
 						<a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
