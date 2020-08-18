@@ -14,7 +14,8 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::all();
+        // $articles = Article::all();
+        $articles = Article::orderBy('id', 'desc')->paginate(6);
 
         return view('articles.index', compact('articles'));
     }
@@ -37,7 +38,18 @@ class ArticleController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = $request->all();
+        
+        if ($request->hasFile('image')) {
+            $request->file('image')->store('/public/images');
+            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => $request->file('image')->hashName()];
+        } else {
+            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body']];
+        }
+
+        Article::insert($data);
+
+        return redirect('/');
     }
 
     /**

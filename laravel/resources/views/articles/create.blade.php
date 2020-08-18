@@ -8,7 +8,7 @@
                 <div class="card-header">景色の投稿</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('articles.store') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">

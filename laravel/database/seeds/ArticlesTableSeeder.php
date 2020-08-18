@@ -15,14 +15,14 @@ class ArticlesTableSeeder extends Seeder
             'user_id' => 1,
             'title' => 'タイトルテスト',
             'body' => '内容テスト',
-            'image' => '###',
+            'image' => '',
         ]);
 
         DB::table('articles')->insert([
             'user_id' => 1,
             'title' => 'タイトルテスト2',
             'body' => '内容テスト2',
-            'image' => '######',
+            'image' => '',
         ]);
     }
 }

@@ -21,4 +21,4 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'ArticleController@index')->name('articles.index');
 Route::resource('/articles', 'ArticleController')->except(['index']);
-Route::resource('/articles', 'ArticleController')->only(['create']);
+Route::resource('/articles', 'ArticleController')->only(['create','store'])->middleware('auth');;
