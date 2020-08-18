@@ -150,7 +150,7 @@ return [
         'email' => 'メールアドレス',
 		'password' => 'パスワード',
 		'title' => 'タイトル',
-		'body' => '内容',
+		'body' => '本文',
 		'image' => '画像',
     ],
 

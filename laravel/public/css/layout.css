@@ -6,8 +6,13 @@
 .image-wrapper {
     text-align: center;
 }
+
 .view-image {
     height: 150px;
     margin-bottom: 20px;
     object-fit: cover;
 }
+
+.mb30 {
+    margin-bottom: 30px !important;
+  }
