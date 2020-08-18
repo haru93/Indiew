@@ -11,10 +11,14 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/', 'ArticleController@index')->name('articles.index');
+// Route::resource('/articles', 'ArticleController')->except(['index'])->middleware('auth');
+// Route::resource('/articles', 'ArticleController')->only(['show']);
