@@ -1,8 +1,12 @@
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
 	<div class="container">
 		<a class="navbar-brand" href="{{ url('/') }}">
-			<img class='navbar-logo' src="{{ asset('images/logo.png') }}">
-			{{ config('app.name', 'Laravel') }}
+			@if(app('env') == 'production')
+				<img class='navbar-logo' src="{{ secure_asset('images/logo.png') }}">
+			@else
+				<img class='navbar-logo' src="{{ asset('images/logo.png') }}">
+			@endif
+			{{ config('app.name', 'TripSwitch') }}
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
 			<span class="navbar-toggler-icon"></span>

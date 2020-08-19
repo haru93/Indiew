@@ -6,9 +6,17 @@
         <div class="col-md-8">
             <div class="card">
                 @if(!empty($article->image))
-                    <div class='image-wrapper'><img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}"></div>
+                    @if(app('env') == 'production')
+                        <div class='image-wrapper'><img class='img-fluid' src="{{ secure_asset('storage/images/'.$article->image) }}"></div>
+                    @else
+                        <div class='image-wrapper'><img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}"></div>
+                    @endif
                 @else
-                    <div class='image-wrapper'><img class='img-fluid' src="{{ asset('images/dummy.png') }}"></div>
+                    @if(app('env') == 'production')
+                        <div class='image-wrapper'><img class='img-fluid' src="{{ secure_asset('images/dummy.png') }}"></div>
+                    @else
+                        <div class='image-wrapper'><img class='img-fluid' src="{{ asset('images/dummy.png') }}"></div>
+                    @endif
                 @endif
                 <div class="card-body">
                     <h5 class="card-title">{{ $article->title }}</h5>

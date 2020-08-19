@@ -12,9 +12,17 @@
                     <a href="{{ route('articles.show', compact('article')) }}" class="card title-link">
                         <div class="card-body">
                             @if(!empty($article->image))
-                                <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('storage/images/'.$article->image) }}"></div>
+                                @if(app('env') == 'production')
+                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ secure_asset('storage/images/'.$article->image) }}"></div>
+                                @else
+                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('storage/images/'.$article->image) }}"></div>
+                                @endif
                             @else
-                                <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('images/dummy.png') }}"></div>
+                                @if(app('env') == 'production')
+                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ secure_asset('images/dummy.png') }}"></div>
+                                @else
+                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('images/dummy.png') }}"></div>
+                                @endif
                             @endif
                             <div class="card-title">{{ $article->title }}</div>
                         </div>
