@@ -7,7 +7,7 @@
             <div class="card">
                 @if(!empty($article->image))
                     @if(app('env') == 'production')
-                        <div class='image-wrapper'><img class='img-fluid' src="{{ secure_asset('storage/images/'.$article->image) }}"></div>
+                        <div class='image-wrapper'><img class='img-fluid' src="{{ $article->image }}"></div>
                     @else
                         <div class='image-wrapper'><img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}"></div>
                     @endif

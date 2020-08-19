@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Http\Requests\StoreArticleForm;
+use Storage;
 
 class ArticleController extends Controller
 {
@@ -35,14 +36,23 @@ class ArticleController extends Controller
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
+     * 
+     * ローカル開発環境での投稿画像はS3に保存せず、articlesテーブルのimageカラムにhashnameを追加。
+     * 本番環境では投稿画像をS3に保存し、同カラムにS3へのパスを追加する。
+     * 
      */
     public function store(StoreArticleForm $request)
     {
         $post = $request->all();
         
         if ($request->hasFile('image')) {
-            $request->file('image')->store('/public/images');
-            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => $request->file('image')->hashName()];
+            if(app('env') == 'production') {
+                $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => Storage::disk('s3')->url($path)];
+            } else {
+                $request->file('image')->store('/public/images');
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => $request->file('image')->hashName()];
+            }
         } else {
             $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body']];
         }
