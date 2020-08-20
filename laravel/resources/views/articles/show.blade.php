@@ -21,6 +21,14 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
+                    @if(Auth::id() === $article->user_id)
+                        <a class="btn btn-primary" href="{{ route('articles.edit', compact('article')) }}" role="button">編集</a>
+                        <form method="POST" action="{{ route('articles.destroy', compact('article')) }}">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="btn btn-danger">削除</button>
+                        </form>
+                    @endif
                 </div>
             </div>
         </div>

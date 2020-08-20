@@ -10,6 +10,14 @@ use Storage;
 class ArticleController extends Controller
 {
     /**
+     * ポリシー追加
+     */
+    public function __construct()
+    {
+        $this->authorizeResource(Article::class, 'article');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -68,9 +76,8 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Article $article)
     {
-        $article = Article::find($id);
         return view('articles.show', compact('article'));
     }
 
@@ -80,9 +87,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Article $article)
     {
-        //
+        return view('articles.edit', compact('article'));
     }
 
     /**
@@ -92,9 +99,25 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(StoreArticleForm $request, Article $article)
     {
-        //
+        $post = $request->all();
+        
+        if ($request->hasFile('image')) {
+            if(app('env') == 'production') {
+                $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => Storage::disk('s3')->url($path)];
+            } else {
+                $request->file('image')->store('/public/images');
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => $request->file('image')->hashName()];
+            }
+        } else {
+            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body']];
+        }
+
+        Article::insert($data);
+
+        return redirect('/')->with('flash_message', '更新が完了しました');
     }
 
     /**
@@ -103,8 +126,9 @@ class ArticleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Article $article)
     {
-        //
+        $article->delete();
+        return redirect('/')->with('flash_message', '削除が完了しました');
     }
 }

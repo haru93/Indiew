@@ -35,7 +35,7 @@
         @include('layouts.nav')
         <main class="py-4">
 
-            <!-- argicles_store flash message -->
+            <!-- argicles_store,update flash message -->
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0 mb30">
                     {{ session('flash_message') }}
