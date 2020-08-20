@@ -27,14 +27,14 @@
                             <label for="title" class="col-md-4 col-form-label text-md-right">タイトル</label>
 
                             <div class="col-md-6">
-                                <input id="title" type="text" class="form-control" name="title" placeholder='タイトルを入力' value="{{ old('title'), $article->title }}">
+                                <input id="title" type="text" class="form-control" name="title" placeholder='タイトルを入力' value="{{ old('title', $article->title) }}">
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="body" class="col-md-4 col-form-label text-md-right">内容</label>
                             <div class="col-md-6">
-                                <textarea class='description form-control' name='body' placeholder='本文を入力' value="{{ old('body'), $article->body }}"></textarea>
+                                <textarea class='description form-control' name='body' placeholder='本文を入力'>{{ old('body', $article->body) }}</textarea>
                             </div>
                         </div>
 
