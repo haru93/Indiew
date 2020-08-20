@@ -9,22 +9,27 @@
 
     <title>{{ config('app.name', 'TripSwitch') }}</title>
 
-    <!-- Scripts -->
-    @if(app('env') == 'production')
-        <script src="{{ secure_asset('js/app.js') }}" defer></script>
-    @else
-        <script src="{{ asset('js/app.js') }}" defer></script>
-    @endif
-
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Styles -->
+    <!-- 本番環境用 -->
     @if(app('env') == 'production')
+        <!-- favicon -->
+        <link rel="shortcut icon" href="{{ secure_asset('images/logo.png') }}">
+        <!-- Scripts -->
+        <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/layout.css') }}" rel="stylesheet">
+        
+    <!-- ローカル環境用 -->
     @else
+        <!-- favicon -->
+        <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     @endif
