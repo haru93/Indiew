@@ -7,15 +7,15 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'TripSwitch') }}</title>
+    <title>{{ config('app.name', 'IndieView') }}</title>
 
     <!-- OGP -->
-    <meta name="description"         content="NintendoSwitchで手に入るインディーズゲームの景色を投稿するサイト">
-    <meta property="og:title"        content="NintendoSwitchで旅を">
-    <meta property="og:description"  content="NintendoSwitchで手に入るインディーズゲームの景色を投稿するサイト">
+    <meta name="description"         content="インディーズゲームにはハイクオリティながらも気軽に手が出せる価格帯のゲームが数多くあります。IndieViewはそのようなゲームが織り成す景色とともに紹介し、情報共有するサイトです。">
+    <meta property="og:title"        content="インディーズゲームで最高の景色を">
+    <meta property="og:description"  content="インディーズゲームにはハイクオリティながらも気軽に手が出せる価格帯のゲームが数多くあります。IndieViewはそのようなゲームが織り成す景色とともに紹介し、情報共有するサイトです。">
     <meta property="og:type"         content="website">
-    <meta property="og:site_name"    content="TripSwitch">
-    <meta property="og:url"          content="https://trip-switch.herokuapp.com">
+    <meta property="og:site_name"    content="IndieView">
+    <meta property="og:url"          content="https://indie-view.herokuapp.com">
     <meta property="og:image"        content="{{ secure_asset('images/opg.jpeg') }}">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
