@@ -13,6 +13,20 @@
     object-fit: cover;
 }
 
+.footer {
+    background-color: #FFFFFF;
+    text-align: center;
+}
+
+.p20 {
+    padding: 20px !important;
+}
+
 .mb30 {
     margin-bottom: 30px !important;
+}
+
+.main {
+    min-height: 85vh;
+    padding: 30px 5%;
 }
