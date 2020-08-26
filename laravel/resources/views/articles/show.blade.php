@@ -21,6 +21,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
+                    <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a>
                     @if(Auth::id() === $article->user_id)
                         <div class="btn-group">
                             <a class="btn btn-primary" href="{{ route('articles.edit', compact('article')) }}" role="button">編集</a>

@@ -21,4 +21,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'ArticleController@index')->name('articles.index');
 Route::resource('/articles', 'ArticleController')->except(['index']);
-Route::resource('/articles', 'ArticleController')->only(['create','store'])->middleware('auth');;
+Route::resource('/articles', 'ArticleController')->only(['create','store'])->middleware('auth');
+
+Route::group(['prefix' => 'games'], function () {
+    Route::get('index', 'GameController@index')->name('games.index');
+    Route::get('show/{id}', 'GameController@show')->name('games.show');
+});
