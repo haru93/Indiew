@@ -8,6 +8,8 @@ class Game extends Model
 {
     protected $fillable = [
         'name',
+        'data',
+        'image',
     ];
 
     public function articles()
