@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Article;
+use App\Models\Game;
 use App\Http\Requests\StoreArticleForm;
 use Storage;
 
@@ -36,7 +37,8 @@ class ArticleController extends Controller
      */
     public function create()
     {
-        return view('articles.create');
+        $games = Game::all();
+        return view('articles.create', compact('games'));
     }
 
     /**
@@ -56,13 +58,13 @@ class ArticleController extends Controller
         if ($request->hasFile('image')) {
             if(app('env') == 'production') {
                 $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => Storage::disk('s3')->url($path)];
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
             } else {
                 $request->file('image')->store('/public/images');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => $request->file('image')->hashName()];
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
             }
         } else {
-            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body']];
+            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id']];
         }
 
         Article::insert($data);
@@ -89,7 +91,8 @@ class ArticleController extends Controller
      */
     public function edit(Article $article)
     {
-        return view('articles.edit', compact('article'));
+        $games = Game::all();
+        return view('articles.edit', compact('article', 'games'));
     }
 
     /**
@@ -106,16 +109,16 @@ class ArticleController extends Controller
         if ($request->hasFile('image')) {
             if(app('env') == 'production') {
                 $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => Storage::disk('s3')->url($path)];
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
             } else {
                 $request->file('image')->store('/public/images');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'image' => $request->file('image')->hashName()];
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
             }
         } else {
-            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body']];
+            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id']];
         }
 
-        Article::insert($data);
+        Article::find($article->id)->fill($data)->save();
 
         return redirect('/')->with('flash_message', '更新が完了しました');
     }

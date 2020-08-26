@@ -38,6 +38,16 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="game_id" class="col-md-4 col-form-label text-md-right">作品名</label>
+                            <select class="form-control col-md-6" name="game_id" id="game_id">
+                                <option value="" selected>作品名を選択</option>
+                                @foreach ($games as $game)
+                                <option value="{{ $game->id }}">{{ $game->name }}</option>
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="file1" class="col-md-4 col-form-label text-md-right">画像</label>
                             <div class="col-md-6">
                                 <input id="file1" type="file" class="form-control-file" name="image">

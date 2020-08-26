@@ -39,6 +39,19 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="game_id" class="col-md-4 col-form-label text-md-right">作品名</label>
+                            <select class="form-control col-md-6" name="game_id" id="game_id">
+                                @foreach ($games as $game)
+                                    @if(old('game_id') == $game->id)
+                                    <option value="{{ $game->id }}" selected>{{ $game->name }}</option>
+                                    @else
+                                    <option value="{{ $game->id }}">{{ $game->name }}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+
+                        <div class="form-group row">
                             <label for="file1" class="col-md-4 col-form-label text-md-right">画像</label>
                             <div class="col-md-6">
                                 <input id="file1" type="file" class="form-control-file" name="image">
