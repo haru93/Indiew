@@ -151,7 +151,8 @@ return [
 		'password' => 'パスワード',
 		'title' => 'タイトル',
 		'body' => '本文',
-		'image' => '画像',
+        'image' => '画像',
+        'game_id' => '作品名',
     ],
 
 ];

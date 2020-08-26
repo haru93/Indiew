@@ -24,6 +24,7 @@ class StoreArticleForm extends FormRequest
     public function rules()
     {
         return [
+            'game_id' => 'required',
             'title' => 'required|string|max:50',
             'body' => 'required|string|max:200',
             'image' => 'mimes:jpeg,png,jpg,gif,svg|max:2048',
