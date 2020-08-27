@@ -27,3 +27,23 @@ Route::group(['prefix' => 'games'], function () {
     Route::get('index', 'GameController@index')->name('games.index');
     Route::get('show/{id}', 'GameController@show')->name('games.show');
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Admin 認証不要
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin'], function() {
+    Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
+    Route::post('login', 'Admin\LoginController@login');
+});
+/*
+|--------------------------------------------------------------------------
+| Admin ログイン後
+|--------------------------------------------------------------------------
+*/
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+    Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+    Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+});
