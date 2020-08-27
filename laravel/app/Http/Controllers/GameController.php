@@ -26,7 +26,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.games.create');
     }
 
     /**
@@ -37,7 +37,20 @@ class GameController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $post = $request->all();
+        
+        if ($request->hasFile('image')) {
+            if(app('env') == 'production') {
+                $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
+                $data = ['name' => $post['name'], 'data' => $post['data'], 'image' => Storage::disk('s3')->url($path)];
+            } else {
+                $request->file('image')->store('/public/images');
+                $data = ['name' => $post['name'], 'data' => $post['data'], 'image' => $request->file('image')->hashName()];
+            }
+        }
+
+        Game::insert($data);
+        return redirect('/admin/home');
     }
 
     /**

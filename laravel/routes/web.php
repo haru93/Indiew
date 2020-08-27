@@ -38,6 +38,7 @@ Route::group(['prefix' => 'admin'], function() {
     Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login', 'Admin\LoginController@login');
 });
+
 /*
 |--------------------------------------------------------------------------
 | Admin ログイン後
@@ -46,4 +47,6 @@ Route::group(['prefix' => 'admin'], function() {
 Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
     Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');
+    Route::get('games/create', 'GameController@create')->name('admin.games.create');
+    Route::post('games/store', 'GameController@store')->name('admin.games.store');
 });
