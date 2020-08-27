@@ -28,7 +28,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="file1" class="col-md-4 col-form-label text-md-right">画像</label>
+                            <label for="file1" class="col-md-4 col-form-label text-md-right">紹介画像</label>
                             <div class="col-md-6">
                                 <input id="file1" type="file" class="form-control-file" name="image">
                             </div>

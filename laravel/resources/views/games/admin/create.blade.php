@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">ゲーム作品の追加</div>
+                <div class="card-header">ゲーム作品の登録</div>
 
                 <div class="card-body">
                     <form method="POST" action="{{ route('games.store') }}" enctype="multipart/form-data">
