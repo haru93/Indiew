@@ -42,7 +42,7 @@
                             <label for="game_id" class="col-md-4 col-form-label text-md-right">作品名</label>
                             <select class="form-control col-md-6" name="game_id" id="game_id">
                                 @foreach ($games as $game)
-                                    @if(old('game_id') == $game->id)
+                                    @if($article->game_id == $game->id)
                                     <option value="{{ $game->id }}" selected>{{ $game->name }}</option>
                                     @else
                                     <option value="{{ $game->id }}">{{ $game->name }}</option>
