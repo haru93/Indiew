@@ -17,4 +17,9 @@ class Article extends Model
     {
         return $this->belongsTo('App\Models\Game');
     }
+
+    public function comments()
+    {
+        return $this->hasMany('App\Models\Comment');
+    }
 }

@@ -28,6 +28,10 @@ Route::group(['prefix' => 'games'], function () {
     Route::get('show/{id}', 'GameController@show')->name('games.show');
 });
 
+Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function() {
+    Route::post('store', 'CommentController@store')->name('comments.store');
+});
+
 
 /*
 |--------------------------------------------------------------------------

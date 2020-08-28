@@ -2,10 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mb30">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ $article->title }}</div>
                 @if(!empty($article->image))
                     @if(app('env') == 'production')
                         <div class='image-wrapper'><img class='img-fluid' src="{{ $article->image }}"></div>
@@ -20,6 +19,7 @@
                     @endif
                 @endif
                 <div class="card-body">
+                    <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
                     <p><a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a></p>
                     @if(Auth::id() === $article->user_id)
@@ -32,6 +32,54 @@
                         </form>
                     </div>
                     @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h4 class='mb20'>コメント</h4>
+
+    @auth
+    <div class="row justify-content-center mb20">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">コメントの投稿</div>
+                <div class="card-body">
+                    <form method="POST" action="{{ route('comments.store') }}">
+                        @csrf
+                        <input name="article_id" type="hidden" value="{{ $article->id }}" >
+
+                        <div class="form-group row">
+                            <label for="body" class="col-md-4 col-form-label text-md-right">内容</label>
+                            <div class="col-md-6">
+                                <textarea class='description form-control' name='body' placeholder='本文を入力'></textarea>
+                            </div>
+                        </div>
+
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                                <button type="submit" class="btn btn-primary">投稿</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    @endauth
+
+    <div class="row justify-content-center mb20">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body">
+                    @forelse ($article->comments()->orderBy('id', 'desc')->get() as $comment)
+                    <div class="border-top p-4">
+                        <h5>{{ $comment->body }}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $comment->user->name }}</h6>
+                    </div>
+                    @empty
+                    <p>コメントはまだありません</p>
+                    @endforelse
                 </div>
             </div>
         </div>
