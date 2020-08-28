@@ -24,7 +24,7 @@
                                     <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('images/dummy.png') }}"></div>
                                 @endif
                             @endif
-                            <div class="card-title">{{ $article->title }}</div>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ $article->game->name }}</h6>
                         </div>
                     </a>
                 </div>
