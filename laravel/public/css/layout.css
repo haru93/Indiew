@@ -13,6 +13,11 @@
     object-fit: cover;
 }
 
+.view-image-games {
+    height: 150px;
+    object-fit: cover;
+}
+
 .footer {
     background-color: #FFFFFF;
     text-align: center;

@@ -31,7 +31,7 @@
         </div>
     </div>
 
-    <h4 class='mb20'>関連記事一覧</h4>
+    <h4 class='mb20'>関連記事</h4>
 
     <div class="row justify-content-center">
         @foreach ($game->articles as $article)
@@ -40,18 +40,17 @@
                 <div class="card-body">
                     @if(!empty($article->image))
                         @if(app('env') == 'production')
-                            <div class='image-wrapper'><img class='img-fluid view-image' src="{{ $article->image }}"></div>
+                            <div class='image-wrapper'><img class='img-fluid view-image-games' src="{{ $article->image }}"></div>
                         @else
-                            <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('storage/images/'.$article->image) }}"></div>
+                            <div class='image-wrapper'><img class='img-fluid view-image-games' src="{{ asset('storage/images/'.$article->image) }}"></div>
                         @endif
                     @else
                         @if(app('env') == 'production')
-                            <div class='image-wrapper'><img class='img-fluid view-image' src="{{ secure_asset('images/dummy.png') }}"></div>
+                            <div class='image-wrapper'><img class='img-fluid view-image-games' src="{{ secure_asset('images/dummy.png') }}"></div>
                         @else
-                            <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('images/dummy.png') }}"></div>
+                            <div class='image-wrapper'><img class='img-fluid view-image-games' src="{{ asset('images/dummy.png') }}"></div>
                         @endif
                     @endif
-                    <div class="card-title">{{ $article->title }}</div>
                 </div>
             </a>
         </div>
