@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <div class="card-header">{{ $article->title }}</div>
                 @if(!empty($article->image))
                     @if(app('env') == 'production')
                         <div class='image-wrapper'><img class='img-fluid' src="{{ $article->image }}"></div>
@@ -19,7 +20,6 @@
                     @endif
                 @endif
                 <div class="card-body">
-                    <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
                     <p><a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a></p>
                     @if(Auth::id() === $article->user_id)

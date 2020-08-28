@@ -6,10 +6,10 @@
 
 @section('content')
 <div class="container">
+    <h2 class='mb20'>ゲーム紹介</h2>
     <div class="row justify-content-center mb30">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">ゲーム紹介</div>
                 @if(!empty($game->image))
                     @if(app('env') == 'production')
                         <div class='image-wrapper'><img class='img-fluid' src="{{ $game->image }}"></div>
@@ -31,6 +31,7 @@
         </div>
     </div>
 
+    <h4 class='mb20'>関連記事一覧</h4>
 
     <div class="row justify-content-center">
         @foreach ($game->articles as $article)
