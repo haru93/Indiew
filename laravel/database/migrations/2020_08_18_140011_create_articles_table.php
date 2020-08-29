@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->foreign('game_id')->references('id')->on('games');
             $table->string('title');
             $table->longText('body');
-            $table->string('image')->nullable();
+            $table->string('image');
             $table->timestamps();
         });
     }

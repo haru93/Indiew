@@ -25,7 +25,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles = Article::orderBy('id', 'desc')->paginate(20);
+        $articles = Article::orderBy('created_at', 'desc')->paginate(20);
         
         return view('articles.index', compact('articles'));
     }
@@ -58,13 +58,11 @@ class ArticleController extends Controller
         if ($request->hasFile('image')) {
             if(app('env') == 'production') {
                 $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path), 'created_at' => now(), 'updated_at' => now()];
             } else {
                 $request->file('image')->store('/public/images');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
+                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName(), 'created_at' => now(), 'updated_at' => now()];
             }
-        } else {
-            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id']];
         }
 
         Article::insert($data);
