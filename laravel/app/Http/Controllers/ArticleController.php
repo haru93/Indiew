@@ -34,6 +34,9 @@ class ArticleController extends Controller
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
+     * 
+     * 登録ゲームをドロップダウンリストに加えるために$gamesを返す。
+     * 
      */
     public function create()
     {
@@ -51,21 +54,20 @@ class ArticleController extends Controller
      * 本番環境では投稿画像をS3に保存し、同カラムにS3へのパスを追加する。
      * 
      */
-    public function store(StoreArticleForm $request)
+    public function store(StoreArticleForm $request, Article $article)
     {
         $post = $request->all();
+        $article->user_id = $request->user()->id;
         
-        if ($request->hasFile('image')) {
-            if(app('env') == 'production') {
-                $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path), 'created_at' => now(), 'updated_at' => now()];
-            } else {
-                $request->file('image')->store('/public/images');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName(), 'created_at' => now(), 'updated_at' => now()];
-            }
+        if(app('env') == 'production') {
+            $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
+        } else {
+            $request->file('image')->store('/public/images');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
         }
 
-        Article::insert($data);
+        $article->fill($data)->save();
 
         return redirect('/')->with('flash_message', '投稿が完了しました');
     }
@@ -104,19 +106,15 @@ class ArticleController extends Controller
     {
         $post = $request->all();
         
-        if ($request->hasFile('image')) {
-            if(app('env') == 'production') {
-                $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
-            } else {
-                $request->file('image')->store('/public/images');
-                $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
-            }
+        if(app('env') == 'production') {
+            $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
         } else {
-            $data = ['user_id' => \Auth::id(), 'title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id']];
+            $request->file('image')->store('/public/images');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
         }
 
-        Article::find($article->id)->fill($data)->save();
+        $article->fill($data)->save();
 
         return redirect('/')->with('flash_message', '更新が完了しました');
     }
