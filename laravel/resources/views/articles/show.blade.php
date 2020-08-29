@@ -19,6 +19,7 @@
                     @endif
                 @endif
                 <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }}</h6>
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
                     <p><a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a></p>
@@ -74,6 +75,7 @@
                 <div class="card-body">
                     @forelse ($article->comments()->orderBy('created_at', 'desc')->get() as $comment)
                     <div class="border-top p-4">
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $comment->created_at->format('Y.m.d') }}</h6>
                         <h5>{{ $comment->body }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $comment->user->name }}</h6>
                     </div>
