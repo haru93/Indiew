@@ -8,13 +8,13 @@
     <div class="container">
         <div class="row justify-content-center">
             @foreach ($articles as $article)
-                <div class="col-md-4 mb-2">
+                <div class="col-md-8 mb-2">
                     <a href="{{ route('articles.show', compact('article')) }}" class="card title-link">
-                        <div class="card-body">
+                        <div class='image-wrapper'>
                             @if(app('env') == 'production')
-                                <div class='image-wrapper'><img class='img-fluid view-image' src="{{ $article->image }}"></div>
+                                <img class='img-fluid' src="{{ $article->image }}">
                             @else
-                                <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('storage/images/'.$article->image) }}"></div>
+                                <img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}">
                             @endif
                                 <div class="card-title">{{ $article->title }}</div>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ $article->game->name }}</h6>
