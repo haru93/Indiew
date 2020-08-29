@@ -5,18 +5,10 @@
     <div class="row justify-content-center mb30">
         <div class="col-md-8">
             <div class="card">
-                @if(!empty($article->image))
-                    @if(app('env') == 'production')
-                        <div class='image-wrapper'><img class='img-fluid' src="{{ $article->image }}"></div>
-                    @else
-                        <div class='image-wrapper'><img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}"></div>
-                    @endif
+                @if(app('env') == 'production')
+                    <div class='image-wrapper'><img class='img-fluid' src="{{ $article->image }}"></div>
                 @else
-                    @if(app('env') == 'production')
-                        <div class='image-wrapper'><img class='img-fluid' src="{{ secure_asset('images/dummy.png') }}"></div>
-                    @else
-                        <div class='image-wrapper'><img class='img-fluid' src="{{ asset('images/dummy.png') }}"></div>
-                    @endif
+                    <div class='image-wrapper'><img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}"></div>
                 @endif
                 <div class="card-body">
                     <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }}</h6>

@@ -11,21 +11,13 @@
                 <div class="col-md-4 mb-2">
                     <a href="{{ route('articles.show', compact('article')) }}" class="card title-link">
                         <div class="card-body">
-                            @if(!empty($article->image))
-                                @if(app('env') == 'production')
-                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ $article->image }}"></div>
-                                @else
-                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('storage/images/'.$article->image) }}"></div>
-                                @endif
+                            @if(app('env') == 'production')
+                                <div class='image-wrapper'><img class='img-fluid view-image' src="{{ $article->image }}"></div>
                             @else
-                                @if(app('env') == 'production')
-                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ secure_asset('images/dummy.png') }}"></div>
-                                @else
-                                    <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('images/dummy.png') }}"></div>
-                                @endif
+                                <div class='image-wrapper'><img class='img-fluid view-image' src="{{ asset('storage/images/'.$article->image) }}"></div>
                             @endif
-                            <div class="card-title">{{ $article->title }}</div>
-                            <h6 class="card-subtitle mb-2 text-muted">{{ $article->game->name }}</h6>
+                                <div class="card-title">{{ $article->title }}</div>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ $article->game->name }}</h6>
                         </div>
                     </a>
                 </div>
