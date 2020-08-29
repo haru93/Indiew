@@ -14,7 +14,7 @@
                             @if(app('env') == 'production')
                                 <img class='img-fluid' src="{{ $article->image }}">
                             @else
-                                <img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}">
+                                <img class='img-fluid' src="{{ asset('storage/'.$article->image) }}">
                             @endif
                                 <div class="card-title">{{ $article->title }}</div>
                                 <h6 class="card-subtitle mb-2 text-muted">{{ $article->game->name }}</h6>

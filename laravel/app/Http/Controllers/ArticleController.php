@@ -6,7 +6,9 @@ use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Game;
 use App\Http\Requests\StoreArticleForm;
-use Storage;
+use Illuminate\Support\Facades\Storage;
+use Intervention\Image\Facades\Image;
+use Carbon\Carbon;
 
 class ArticleController extends Controller
 {
@@ -52,18 +54,29 @@ class ArticleController extends Controller
      * 
      * ローカル開発環境での投稿画像はS3に保存せず、articlesテーブルのimageカラムにhashnameを追加。
      * 本番環境では投稿画像をS3に保存し、同カラムにS3へのパスを追加する。
-     * 
+     * 画像を縦幅アスペクト比維持の自動サイズへリサイズして一時ファイル保存先へ格納
      */
     public function store(StoreArticleForm $request, Article $article)
     {
         $post = $request->all();
+
+        $imagefile = $request->file('image');
+
+        $now = date_format(Carbon::now(), 'YmdHis');
+        $name = $imagefile->getClientOriginalName();
+
+        $image = Image::make($imagefile)->resize(610, 345, function ($constraint) {
+            $constraint->aspectRatio();
+        });
         
         if(app('env') == 'production') {
-            $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
+            $storePath="/".$now."_".$name;
+            Storage::disk('s3')->put($storePath, (string) $image->encode(),'public');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storePath)];
         } else {
-            $request->file('image')->store('/public/images');
-            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
+            $storeName=$now."_".$name;
+            Storage::disk('public')->put($storeName, (string) $image->encode());
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $storeName];
         }
 
         $article->user_id = $request->user()->id;
@@ -106,13 +119,24 @@ class ArticleController extends Controller
     public function update(StoreArticleForm $request, Article $article)
     {
         $post = $request->all();
+
+        $imagefile = $request->file('image');
+
+        $now = date_format(Carbon::now(), 'YmdHis');
+        $name = $imagefile->getClientOriginalName();
+
+        $image = Image::make($imagefile)->resize(610, 345, function ($constraint) {
+            $constraint->aspectRatio();
+        });
         
         if(app('env') == 'production') {
-            $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($path)];
+            $storePath="/".$now."_".$name;
+            Storage::disk('s3')->put($storePath, (string) $image->encode(),'public');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storePath)];
         } else {
-            $request->file('image')->store('/public/images');
-            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
+            $storeName=$now."_".$name;
+            Storage::disk('public')->put($storeName, (string) $image->encode());
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $storeName];
         }
 
         $article->fill($data)->save();

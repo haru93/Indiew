@@ -45,7 +45,7 @@ class GameController extends Controller
                 $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
                 $data = ['name' => $post['name'], 'data' => $post['data'], 'image' => Storage::disk('s3')->url($path)];
             } else {
-                $request->file('image')->store('/public/images');
+                $request->file('image')->store('public');
                 $data = ['name' => $post['name'], 'data' => $post['data'], 'image' => $request->file('image')->hashName()];
             }
         }

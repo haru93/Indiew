@@ -9,7 +9,7 @@
                         @if(app('env') == 'production')
                             <img class='img-fluid' src="{{ $article->image }}">
                         @else
-                            <img class='img-fluid' src="{{ asset('storage/images/'.$article->image) }}">
+                            <img class='img-fluid' src="{{ asset('storage/'.$article->image) }}">
                         @endif
                     </div>
 

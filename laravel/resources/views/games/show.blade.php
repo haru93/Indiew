@@ -14,7 +14,7 @@
                         @if(app('env') == 'production')
                             <img class='img-fluid' src="{{ $game->image }}">
                         @else
-                            <img class='img-fluid' src="{{ asset('storage/images/'.$game->image) }}">
+                            <img class='img-fluid' src="{{ asset('storage/'.$game->image) }}">
                         @endif
                     </div>
                     <div class="card-body">
@@ -36,7 +36,7 @@
                                 @if(app('env') == 'production')
                                     <img class='img-fluid view-image-games' src="{{ $article->image }}">
                                 @else
-                                    <img class='img-fluid view-image-games' src="{{ asset('storage/images/'.$article->image) }}">
+                                    <img class='img-fluid view-image-games' src="{{ asset('storage/'.$article->image) }}">
                                 @endif
                             </div>
                         </div>

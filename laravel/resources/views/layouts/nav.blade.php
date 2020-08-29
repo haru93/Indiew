@@ -2,9 +2,9 @@
 	<div class="container">
 		<a class="navbar-brand" href="{{ url('/') }}">
 			@if(app('env') == 'production')
-				<img class='navbar-logo' src="{{ secure_asset('images/logo.png') }}">
+				<img class='navbar-logo' src="{{ secure_asset('logo.png') }}">
 			@else
-				<img class='navbar-logo' src="{{ asset('images/logo.png') }}">
+				<img class='navbar-logo' src="{{ asset('logo.png') }}">
 			@endif
 			{{ config('app.name', 'IndieView') }}
 		</a>
