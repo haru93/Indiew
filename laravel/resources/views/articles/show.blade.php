@@ -72,7 +72,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-body">
-                    @forelse ($article->comments()->orderBy('id', 'desc')->get() as $comment)
+                    @forelse ($article->comments()->orderBy('created_at', 'desc')->get() as $comment)
                     <div class="border-top p-4">
                         <h5>{{ $comment->body }}</h5>
                         <h6 class="card-subtitle mb-2 text-muted">{{ $comment->user->name }}</h6>

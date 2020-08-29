@@ -57,7 +57,6 @@ class ArticleController extends Controller
     public function store(StoreArticleForm $request, Article $article)
     {
         $post = $request->all();
-        $article->user_id = $request->user()->id;
         
         if(app('env') == 'production') {
             $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
@@ -66,6 +65,8 @@ class ArticleController extends Controller
             $request->file('image')->store('/public/images');
             $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $request->file('image')->hashName()];
         }
+
+        $article->user_id = $request->user()->id;
 
         $article->fill($data)->save();
 
