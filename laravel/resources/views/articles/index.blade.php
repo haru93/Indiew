@@ -9,15 +9,15 @@
         <div class="row justify-content-center">
             @foreach ($articles as $article)
                 <div class="col-md-8 mb-2">
-                    <a href="{{ route('articles.show', compact('article')) }}" class="card title-link">
+                    <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
                         <div class='image-wrapper'>
                             @if(app('env') == 'production')
-                                <img class='img-fluid' src="{{ $article->image }}">
+                                <img class='img-fluid image-box' src="{{ $article->image }}">
                             @else
-                                <img class='img-fluid' src="{{ asset('storage/'.$article->image) }}">
+                                <img class='img-fluid image-box' src="{{ asset('storage/'.$article->image) }}">
                             @endif
-                                <div class="card-title">{{ $article->title }}</div>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ $article->game->name }}</h6>
+                                <p>{{ $article->title }}</p>
+                                <p>{{ $article->game->name }}</p>
                         </div>
                     </a>
                 </div>

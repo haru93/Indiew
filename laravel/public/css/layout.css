@@ -7,6 +7,11 @@
     text-align: center;
 }
 
+.image-box {
+    object-fit: contain;
+    height: 300px;
+}
+
 .view-image {
     height: 150px;
     margin-bottom: 20px;

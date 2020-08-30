@@ -54,7 +54,7 @@ class ArticleController extends Controller
      * 
      * ローカル開発環境での投稿画像はS3に保存せず、articlesテーブルのimageカラムにhashnameを追加。
      * 本番環境では投稿画像をS3に保存し、同カラムにS3へのパスを追加する。
-     * 画像を縦幅アスペクト比維持の自動サイズへリサイズして一時ファイル保存先へ格納
+     * 縦562px以上の画像はInterventionImageによって縦幅アスペクト比維持の自動サイズへリサイズし格納する。
      */
     public function store(StoreArticleForm $request, Article $article)
     {
@@ -65,8 +65,8 @@ class ArticleController extends Controller
         $now = date_format(Carbon::now(), 'YmdHis');
         $name = $imagefile->getClientOriginalName();
 
-        $image = Image::make($imagefile)->resize(610, 345, function ($constraint) {
-            $constraint->aspectRatio();
+        $image = Image::make($imagefile)->heighten(562, function ($constraint) {
+            $constraint->upsize();
         });
         
         if(app('env') == 'production') {
@@ -125,7 +125,7 @@ class ArticleController extends Controller
         $now = date_format(Carbon::now(), 'YmdHis');
         $name = $imagefile->getClientOriginalName();
 
-        $image = Image::make($imagefile)->resize(610, 345, function ($constraint) {
+        $image = Image::make($imagefile)->resize(1000, 562, function ($constraint) {
             $constraint->aspectRatio();
         });
         
