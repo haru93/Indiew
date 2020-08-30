@@ -64,17 +64,16 @@ class ArticleController extends Controller
 
         $now = date_format(Carbon::now(), 'YmdHis');
         $name = $imagefile->getClientOriginalName();
+        $storeName=$now."_".$name;
 
         $image = Image::make($imagefile)->heighten(562, function ($constraint) {
             $constraint->upsize();
         });
         
         if(app('env') == 'production') {
-            $storePath="/".$now."_".$name;
-            Storage::disk('s3')->put($storePath, (string) $image->encode(),'public');
-            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storePath)];
+            Storage::disk('s3')->put($storeName, (string) $image->encode(),'public');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storeName)];
         } else {
-            $storeName=$now."_".$name;
             Storage::disk('public')->put($storeName, (string) $image->encode());
             $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $storeName];
         }
@@ -124,17 +123,16 @@ class ArticleController extends Controller
 
         $now = date_format(Carbon::now(), 'YmdHis');
         $name = $imagefile->getClientOriginalName();
+        $storeName=$now."_".$name;
 
         $image = Image::make($imagefile)->heighten(562, function ($constraint) {
             $constraint->upsize();
         });
         
         if(app('env') == 'production') {
-            $storePath="/".$now."_".$name;
-            Storage::disk('s3')->put($storePath, (string) $image->encode(),'public');
-            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storePath)];
+            Storage::disk('s3')->put($storeName, (string) $image->encode(),'public');
+            $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storeName)];
         } else {
-            $storeName=$now."_".$name;
             Storage::disk('public')->put($storeName, (string) $image->encode());
             $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => $storeName];
         }

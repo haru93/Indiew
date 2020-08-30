@@ -71,9 +71,8 @@
                     <div class="card-body">
                         @forelse ($article->comments()->orderBy('created_at', 'desc')->get() as $comment)
                             <div class="border-top p-4">
-                                <h6 class="card-subtitle mb-2 text-muted">{{ $comment->created_at->format('Y.m.d') }}</h6>
+                                <h6 class="card-subtitle mb-2 text-muted">{{ $comment->created_at->format('Y.m.d') }} : {{ $comment->user->name }}</h6>
                                 <h5>{{ $comment->body }}</h5>
-                                <h6 class="card-subtitle mb-2 text-muted">{{ $comment->user->name }}</h6>
                             </div>
                         @empty
                             <p>コメントはまだありません</p>
