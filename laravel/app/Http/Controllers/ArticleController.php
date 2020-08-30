@@ -125,8 +125,8 @@ class ArticleController extends Controller
         $now = date_format(Carbon::now(), 'YmdHis');
         $name = $imagefile->getClientOriginalName();
 
-        $image = Image::make($imagefile)->resize(1000, 562, function ($constraint) {
-            $constraint->aspectRatio();
+        $image = Image::make($imagefile)->heighten(562, function ($constraint) {
+            $constraint->upsize();
         });
         
         if(app('env') == 'production') {

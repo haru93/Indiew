@@ -12,9 +12,9 @@
                 <div class="card">
                     <div class='image-wrapper'>
                         @if(app('env') == 'production')
-                            <img class='img-fluid' src="{{ $game->image }}">
+                            <img class='card-img-top' src="{{ $game->image }}">
                         @else
-                            <img class='img-fluid' src="{{ asset('storage/'.$game->image) }}">
+                            <img class='card-img-top' src="{{ asset('storage/'.$game->image) }}">
                         @endif
                     </div>
                     <div class="card-body">

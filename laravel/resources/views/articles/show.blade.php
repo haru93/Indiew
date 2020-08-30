@@ -7,14 +7,14 @@
                 <div class="card">
                     <div class='image-wrapper'>
                         @if(app('env') == 'production')
-                            <img class='card-img-top img-fluid' src="{{ $article->image }}">
+                            <img class='card-img-top' src="{{ $article->image }}">
                         @else
-                            <img class='card-img-top img-fluid' src="{{ asset('storage/'.$article->image) }}">
+                            <img class='card-img-top' src="{{ asset('storage/'.$article->image) }}">
                         @endif
                     </div>
 
                     <div class="card-body">
-                        <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }} : {{ $article->user->name }}</h6>
                         <h5 class="card-title">{{ $article->title }}</h5>
                         <p class="card-text">{{ $article->body }}</p>
                         <p><a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a></p>
