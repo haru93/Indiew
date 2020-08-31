@@ -70,7 +70,7 @@
 }
 
 .footer {
-    background-color: #FFFFFF;
+    background-color: #BCF8FF;
     text-align: center;
 }
 
@@ -88,5 +88,10 @@
 
 .main {
     min-height: 85vh;
-    padding: 30px 5%;
+    padding: 60px 5%;
+    background-color: #F8FEFF;
+}
+
+.navbar {
+    background-color: #BCF8FF;
 }
