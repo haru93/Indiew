@@ -6,8 +6,8 @@
 
 @section('content')
     <div class="container">
-        <h2 class='mb20'>ゲーム紹介</h2>
-        <div class="row justify-content-center mb30">
+        <h2 class='mt-3 mb-2'>ゲーム紹介</h2>
+        <div class="row justify-content-center mb-3">
             <div class="col-md-8">
                 <div class="card">
                     <div class='image-wrapper'>
@@ -25,7 +25,7 @@
             </div>
         </div>
 
-        <h4 class='mb20'>関連記事</h4>
+        <h4 class='mb-2'>関連記事</h4>
 
         <div class="row justify-content-center">
             @foreach ($game->articles as $article)

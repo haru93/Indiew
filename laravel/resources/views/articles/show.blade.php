@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row justify-content-center mb30">
+        <div class="row justify-content-center mt-3 mb-3">
             <div class="col-md-8">
                 <div class="card">
                     <div class='image-wrapper'>
@@ -17,7 +17,7 @@
                         <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }} : {{ $article->user->name }}</h6>
                         <h5 class="card-title">{{ $article->title }}</h5>
                         <p class="card-text">{{ $article->body }}</p>
-                        <p><a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a></p>
+                        <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a>
                         
                         @if(Auth::id() === $article->user_id)
                             <div class="btn-group">
@@ -34,10 +34,10 @@
             </div>
         </div>
 
-        <h4 class='mb20'>コメント</h4>
+        <h4 class='mb-2'>コメント</h4>
 
         @auth
-            <div class="row justify-content-center mb20">
+            <div class="row justify-content-center mb-3">
                 <div class="col-md-8">
                     <div class="card">
                         <div class="card-header">コメントの投稿</div>
@@ -65,7 +65,7 @@
             </div>
         @endauth
 
-        <div class="row justify-content-center mb20">
+        <div class="row justify-content-center mb-3">
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
@@ -75,7 +75,7 @@
                                 <h5>{{ $comment->body }}</h5>
                             </div>
                         @empty
-                            <p>コメントはまだありません</p>
+                            コメントはまだありません
                         @endforelse
                     </div>
                 </div>
