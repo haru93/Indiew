@@ -1,6 +1,6 @@
 .navbar-logo {
-    height: 60px;
-    margin-right: 15px;
+    height: 35px;
+    margin-right: 10px;
 }
 
 .image-wrapper {
@@ -50,11 +50,11 @@
 
 .index-2col img {
     width: 100%;
-    height: 20vh;
+    height: 25vh;
     object-fit: cover;
 }
 
-.index-2col .col-md-5 {
+.index-2col .col-md-6 {
     padding: 0;
 }
 
@@ -84,12 +84,6 @@
 
 .mb30 {
     margin-bottom: 30px !important;
-}
-
-.main {
-    min-height: 85vh;
-    padding: 60px 5%;
-    background-color: #F8FEFF;
 }
 
 .navbar {

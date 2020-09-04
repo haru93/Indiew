@@ -1,5 +1,5 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm">
-	<div class="container">
+	<div class="container-fluid">
 		<a class="navbar-brand" href="{{ url('/') }}">
 			@if(app('env') == 'production')
 				<img class='navbar-logo' src="{{ secure_asset('logo.png') }}">

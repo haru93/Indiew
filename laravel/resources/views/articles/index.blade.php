@@ -5,11 +5,11 @@
 </style>
 
 @section('content')
-    <div class="container">
+    <div class="container-fluid">
         @foreach ($articles->chunk(2) as $chunk)
             <div class="row justify-content-center index-2col">
                 @foreach ($chunk as $article)
-                    <div class="col-md-5 mb30">
+                    <div class="col-md-6">
                         <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
                             <div class='image-wrapper-index'>
                                 @if(app('env') == 'production')
