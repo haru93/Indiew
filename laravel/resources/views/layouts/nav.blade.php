@@ -16,7 +16,7 @@
 			<!-- Left Side Of Navbar -->
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
-					<a class="nav-link" href="{{ route('games.index') }}"><i class="fa fa-book mr-1"></i>登録ゲーム一覧</a>
+					<a class="nav-link" href="{{ route('games.index') }}">登録ゲーム一覧</a>
 				</li>
 			</ul>
 

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Validation\ValidationException;
+use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
 {
@@ -42,12 +42,33 @@ class LoginController extends Controller
     }
 
     /**
-     * ログイン認証時のバリデーションエラー文言（auth.faild）を日本語に修正
+     * 他サービスアカウント認証
      */
-    protected function sendFailedLoginResponse(Request $request)
+    public function redirectToProvider(string $provider)
     {
-        throw ValidationException::withMessages([
-            $this->username() => [trans('認証に失敗しました。')],
-        ]);
+        return Socialite::driver($provider)->redirect();
+    }
+
+    /**
+     * 他サービス側からのリダイレクト
+     */
+    public function handleProviderCallback(Request $request, string $provider)
+    {
+        $providerUser = Socialite::driver($provider)->stateless()->user();
+
+        $user = User::where('email', $providerUser->getEmail())->first();
+
+        if ($user) {
+            $this->guard()->login($user, true);
+            return $this->sendLoginResponse($request);
+        }
+        /**
+         * Googleアカウントから取得したメールアドレスが本教材のWebサービスの登録済みユーザーの中に存在しなかった場合
+         */
+        return redirect()->route('register.{provider}', [
+            'provider' => $provider,
+            'email' => $providerUser->getEmail(),
+            'token' => $providerUser->token,
+        ]);        
     }
 }

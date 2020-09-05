@@ -17,6 +17,21 @@
 
 Auth::routes();
 
+/**
+ * 他サービスを用いたログイン認証
+ */
+Route::prefix('login')->name('login.')->group(function () {
+    Route::get('/{provider}', 'Auth\LoginController@redirectToProvider')->name('{provider}');
+    Route::get('/{provider}/callback', 'Auth\LoginController@handleProviderCallback')->name('{provider}.callback');
+});
+/**
+ * 他サービスを用いたユーザー登録
+ */
+Route::prefix('register')->name('register.')->group(function () {
+    Route::get('/{provider}', 'Auth\RegisterController@showProviderUserRegistrationForm')->name('{provider}');
+    Route::post('/{provider}', 'Auth\RegisterController@registerProviderUser')->name('{provider}');
+});
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'ArticleController@index')->name('articles.index');
