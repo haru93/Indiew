@@ -23,19 +23,15 @@
 
         <h4 class='mb-2'>関連記事</h4>
 
-        <div class="row justify-content-center">
+        <div class="row justify-content-center index-3col">
             @foreach ($game->articles as $article)
                 <div class="col-md-4 mb-2">
-                    <a href="{{ route('articles.show', compact('article')) }}" class="card title-link">
-                        <div class="card-body">
-                            <div class='image-wrapper'>
-                                @if(app('env') == 'production')
-                                    <img class='img-fluid view-image-games' src="{{ $article->image }}">
-                                @else
-                                    <img class='img-fluid view-image-games' src="{{ asset('storage/'.$article->image) }}">
-                                @endif
-                            </div>
-                        </div>
+                    <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
+                        @if(app('env') == 'production')
+                            <img class='img-fluid view-image-games' src="{{ $article->image }}">
+                        @else
+                            <img class='img-fluid' src="{{ asset('storage/'.$article->image) }}">
+                        @endif
                     </a>
                 </div>
             @endforeach
