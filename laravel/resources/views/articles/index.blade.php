@@ -3,27 +3,23 @@
 @section('content')
     <div class="container-fluid">
         @foreach ($articles->chunk(2) as $chunk)
-            <div class="row justify-content-center image-col">
+            <div class="row justify-content-left image-col">
                 @foreach ($chunk as $article)
-                    @if (count($chunk) == 2)
-                        <div class="col-md-6"> 
-                    @else
-                        <div class="col-md-12">
-                    @endif
-                            <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
-                                <div class='image-wrapper'>
-                                    @if(app('env') == 'production')
-                                        <img src="{{ $article->image }}">
-                                    @else
-                                        <img src="{{ asset('storage/'.$article->image) }}">
-                                    @endif
-                                        <div class="mask">
-                                            <div class="caption-title">{{ $article->title }}</div>
-                                        </div>
-                                        <div class="caption-gamename">{{ $article->game->name }}</div>
-                                </div>
-                            </a>
-                        </div>
+                    <div class="col-md-6">
+                        <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
+                            <div class='image-wrapper'>
+                                @if(app('env') == 'production')
+                                    <img src="{{ $article->image }}">
+                                @else
+                                    <img src="{{ asset('storage/'.$article->image) }}">
+                                @endif
+                                    <div class="mask">
+                                        <div class="caption-title">{{ $article->title }}</div>
+                                    </div>
+                                    <div class="caption-gamename">{{ $article->game->name }}</div>
+                            </div>
+                        </a>
+                    </div>
                 @endforeach
             </div>
         @endforeach

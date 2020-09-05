@@ -66,10 +66,10 @@ footer {
 
 .image-col img {
     width: 100%;
-    height: 25vh;
+    max-height: 300px;
     object-fit: cover;
 }
 
-.image-col .col-md-4,.col-md-6,.col-md-12 {
+.image-col .col-md-4,.col-md-6 {
     padding: 0;
 }
