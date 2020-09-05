@@ -4,6 +4,7 @@ body,
   flex-direction: column;
   min-height: 100vh;
   background-color: #F8FEFF;
+  font-family: Hiragino Maru Gothic Pro W4;
 }
 
 footer {
