@@ -20,15 +20,20 @@
         </div>
 
         <h4 class='mb-2'>関連記事</h4>
-        <div class="row justify-content-left index-3col">
+        <div class="row justify-content-left image-col">
             @foreach ($game->articles as $article)
                 <div class="col-md-4">
                     <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
-                        @if(app('env') == 'production')
-                            <img class='img-fluid' src="{{ $article->image }}">
-                        @else
-                            <img class='img-fluid' src="{{ asset('storage/'.$article->image) }}">
-                        @endif
+                        <div class='image-wrapper'>
+                            @if(app('env') == 'production')
+                                <img src="{{ $article->image }}">
+                            @else
+                                <img src="{{ asset('storage/'.$article->image) }}">
+                            @endif
+                            <div class="mask">
+                                <div class="caption-title">{{ $article->title }}</div>
+                            </div>
+                        </div>
                     </a>
                 </div>
             @endforeach

@@ -63,21 +63,12 @@ footer {
     opacity: 1;
 }
 
-.index-2col img {
+.image-col img {
     width: 100%;
     height: 25vh;
     object-fit: cover;
 }
 
-.index-2col .col-md-6 {
+.image-col .col-md-4,.col-md-6,.col-md-12 {
     padding: 0;
-}
-
-.index-2col .col-md-12 {
-    padding: 0;
-}
-
-.index-3col .col-md-4 {
-    padding-left: 0;
-    padding-right: 0;
 }

@@ -3,7 +3,7 @@
 @section('content')
     <div class="container-fluid">
         @foreach ($articles->chunk(2) as $chunk)
-            <div class="row justify-content-center index-2col">
+            <div class="row justify-content-center image-col">
                 @foreach ($chunk as $article)
                     @if (count($chunk) == 2)
                         <div class="col-md-6"> 
