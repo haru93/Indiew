@@ -23,12 +23,12 @@
 
         <h4 class='mb-2'>関連記事</h4>
 
-        <div class="row justify-content-center index-3col">
+        <div class="row justify-content-left index-3col">
             @foreach ($game->articles as $article)
-                <div class="col-md-4 mb-2">
+                <div class="col-md-4">
                     <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
                         @if(app('env') == 'production')
-                            <img class='img-fluid view-image-games' src="{{ $article->image }}">
+                            <img class='img-fluid' src="{{ $article->image }}">
                         @else
                             <img class='img-fluid' src="{{ asset('storage/'.$article->image) }}">
                         @endif
