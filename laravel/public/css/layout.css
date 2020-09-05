@@ -1,24 +1,39 @@
+body,
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #F8FEFF;
+}
+
+footer {
+    background-color: #BCF8FF;
+    text-align: center;
+    margin-top: auto;
+    padding: 20px;
+}
+
 .navbar-logo {
     height: 35px;
     margin-right: 10px;
 }
 
-.image-wrapper {
-    text-align: center;
+.navbar {
+    background-color: #BCF8FF;
 }
 
-.image-wrapper-index {
+.image-wrapper {
     position: relative;
 }
 
-.image-wrapper-index .caption-title {
+.image-wrapper .caption-title {
     font-size: 130%;
 	text-align: center;
     color: #fff;
     padding-top: 10vh;
 }
 
-.image-wrapper-index .caption-gamename {
+.image-wrapper .caption-gamename {
     position: absolute;
 	left: 0;
 	bottom: 0;
@@ -32,7 +47,7 @@
     line-height: 1;
 }
 
-.image-wrapper-index .mask {
+.image-wrapper .mask {
     width: 100%;
 	height:	100%;
 	position: absolute;
@@ -44,7 +59,7 @@
 	transition:	all 0.2s ease;
 }
 
-.image-wrapper-index:hover .mask {
+.image-wrapper:hover .mask {
     opacity: 1;
 }
 
@@ -65,40 +80,4 @@
 .index-3col .col-md-4 {
     padding-left: 0;
     padding-right: 0;
-}
-
-.view-image {
-    height: 150px;
-    margin-bottom: 20px;
-    object-fit: cover;
-}
-
-.view-image-games {
-    height: 150px;
-    object-fit: cover;
-}
-
-.footer {
-    background-color: #BCF8FF;
-    text-align: center;
-}
-
-.p20 {
-    padding: 20px !important;
-}
-
-.mb20 {
-    margin-bottom: 20px !important;
-}
-
-.mb30 {
-    margin-bottom: 30px !important;
-}
-
-.navbar {
-    background-color: #BCF8FF;
-}
-
-.main {
-    background-color: #F8FEFF;
 }

@@ -11,7 +11,7 @@
                         <div class="col-md-12">
                     @endif
                             <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
-                                <div class='image-wrapper-index'>
+                                <div class='image-wrapper'>
                                     @if(app('env') == 'production')
                                         <img src="{{ $article->image }}">
                                     @else

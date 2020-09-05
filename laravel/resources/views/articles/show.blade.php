@@ -5,13 +5,11 @@
         <div class="row justify-content-center mt-3 mb-3">
             <div class="col-md-8">
                 <div class="card">
-                    <div class='image-wrapper'>
-                        @if(app('env') == 'production')
-                            <img class='card-img-top' src="{{ $article->image }}">
-                        @else
-                            <img class='card-img-top' src="{{ asset('storage/'.$article->image) }}">
-                        @endif
-                    </div>
+                    @if(app('env') == 'production')
+                        <img class='card-img-top' src="{{ $article->image }}">
+                    @else
+                        <img class='card-img-top' src="{{ asset('storage/'.$article->image) }}">
+                    @endif
 
                     <div class="card-body">
                         <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }} : {{ $article->user->name }}</h6>

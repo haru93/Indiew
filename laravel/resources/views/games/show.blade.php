@@ -6,13 +6,11 @@
         <div class="row justify-content-center mb-3">
             <div class="col-md-8">
                 <div class="card">
-                    <div class='image-wrapper'>
-                        @if(app('env') == 'production')
-                            <img class='card-img-top' src="{{ $game->image }}">
-                        @else
-                            <img class='card-img-top' src="{{ asset('storage/'.$game->image) }}">
-                        @endif
-                    </div>
+                    @if(app('env') == 'production')
+                        <img class='card-img-top' src="{{ $game->image }}">
+                    @else
+                        <img class='card-img-top' src="{{ asset('storage/'.$game->image) }}">
+                    @endif
                     <div class="card-body">
                         <h5 class="card-title">{{ $game->name }}</h5>
                         <p class="card-text">{{ $game->data }}</p>
@@ -22,7 +20,6 @@
         </div>
 
         <h4 class='mb-2'>関連記事</h4>
-
         <div class="row justify-content-left index-3col">
             @foreach ($game->articles as $article)
                 <div class="col-md-4">

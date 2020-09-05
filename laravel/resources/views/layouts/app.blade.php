@@ -49,8 +49,7 @@
 <body>
     <div id="app">
         @include('layouts.nav')
-        <main class="main">
-
+        <main>
             <!-- argicles_store,update flash message -->
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0">
@@ -60,7 +59,7 @@
 
             @yield('content')
         </main>
-        <footer class='footer p20'>
+        <footer>
             <small>©️ IndieView</small>
         </footer>
     </div>
