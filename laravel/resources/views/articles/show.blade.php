@@ -20,14 +20,16 @@
                         <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text">{{ $article->game->name }}</a>
                         
                         @if(Auth::id() === $article->user_id)
-                            <div class="btn-group">
-                                <a class="btn btn-primary" href="{{ route('articles.edit', compact('article')) }}" role="button">編集</a>
-                                <form method="POST" action="{{ route('articles.destroy', compact('article')) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                        <button type="submit" class="btn btn-danger">削除</button>
-                                </form>
-                            </div>
+                            <p>
+                                <div class="btn-group">
+                                    <a class="btn btn-primary" href="{{ route('articles.edit', compact('article')) }}" role="button">編集</a>
+                                    <form method="POST" action="{{ route('articles.destroy', compact('article')) }}">
+                                        @csrf
+                                        @method('DELETE')
+                                            <button type="submit" class="btn btn-danger">削除</button>
+                                    </form>
+                                </div>
+                            </p>
                         @endif
                     </div>
                 </div>

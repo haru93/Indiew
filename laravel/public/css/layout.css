@@ -58,6 +58,10 @@
     padding: 0;
 }
 
+.index-2col .col-md-12 {
+    padding: 0;
+}
+
 .view-image {
     height: 150px;
     margin-bottom: 20px;

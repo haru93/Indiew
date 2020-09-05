@@ -1,9 +1,5 @@
 @extends('layouts.app')
 
-<style>
-    .title-link { color : #000000; }
-</style>
-
 @section('content')
     <div class="container">
         <h2 class='mt-3 mb-2'>ゲーム紹介</h2>
