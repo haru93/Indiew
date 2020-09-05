@@ -9,4 +9,5 @@ return [
 	'Name' => '名前',
 	'Confirm Password' => '確認用パスワード',
 	'AdminLogin' => '管理者ログイン',
+	'Remember Me' => 'ログイン状態を保存',
 ];
