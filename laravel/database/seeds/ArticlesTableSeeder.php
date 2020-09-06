@@ -32,7 +32,7 @@ class ArticlesTableSeeder extends Seeder
         ]);
 
         DB::table('articles')->insert([
-            'user_id' => 2,
+            'user_id' => 1,
             'game_id' => 1,
             'title' => '幻想的な色合い',
             'body' => 'ストーリーが気になります。',
@@ -43,8 +43,18 @@ class ArticlesTableSeeder extends Seeder
 
         DB::table('articles')->insert([
             'user_id' => 2,
+            'game_id' => 1,
+            'title' => '戦闘シーン',
+            'body' => 'ボス戦でのワンシーンです。',
+            'image' => 'HollowKnight_articles2.jpg',
+            'created_at' => date('2020-08-29 12:00:00'),
+            'updated_at' => date('2020-08-29 12:00:00'),
+        ]);
+
+        DB::table('articles')->insert([
+            'user_id' => 2,
             'game_id' => 3,
-            'title' => '色合いとは裏腹に',
+            'title' => '伝わる緊張感',
             'body' => '緊張感があります。',
             'image' => 'UntitledGoose_articles.jpg',
             'created_at' => now(),
