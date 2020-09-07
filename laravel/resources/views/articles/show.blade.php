@@ -10,8 +10,18 @@
                     @else
                         <img class='card-img-top' src="{{ asset('storage/'.$article->image) }}">
                     @endif
-
-                    <div class="card-body">
+                    <div class="card-body pt-0 pb-0 pl-3">
+                        <div class="card-text text-right">
+                            <article-like
+                                :initial-is-liked-by='@json($article->isLikedBy(Auth::user()))'
+                                :initial-count-likes='@json($article->count_likes)'
+                                :authorized='@json(Auth::check())'
+                                endpoint="{{ route('articles.like', ['article' => $article]) }}"
+                            >
+                            </article-like>
+                        </div>
+                    </div>
+                    <div class="card-body pt-0">
                         <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }} : {{ $article->user->name }}</h6>
                         <h5 class="card-title">{{ $article->title }}</h5>
                         <p class="card-text">{{ $article->body }}</p>

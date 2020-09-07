@@ -27,4 +27,19 @@ class Article extends Model
     {
         return $this->hasMany('App\Models\Comment');
     }
+
+    public function likes()
+    {
+        return $this->belongsToMany('App\Models\User', 'likes')->withTimestamps();
+    }
+
+    public function isLikedBy(?User $user)
+    {
+        return $user ? (bool)$this->likes->where('id', $user->id)->count() : false;
+    }
+
+    public function getCountLikesAttribute()
+    {
+        return $this->likes->count();
+    }
 }

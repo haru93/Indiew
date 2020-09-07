@@ -36,14 +36,19 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/', 'ArticleController@index')->name('articles.index');
 Route::resource('/articles', 'ArticleController')->except(['index']);
-Route::resource('/articles', 'ArticleController')->only(['create','store'])->middleware('auth');
+Route::resource('/articles', 'ArticleController')->only(['create', 'store'])->middleware('auth');
+
+Route::prefix('articles')->name('articles.')->group(function () {
+    Route::put('/{article}/like', 'ArticleController@like')->name('like')->middleware('auth');
+    Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike')->middleware('auth');
+});
 
 Route::group(['prefix' => 'games'], function () {
     Route::get('index', 'GameController@index')->name('games.index');
     Route::get('show/{id}', 'GameController@show')->name('games.show');
 });
 
-Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function() {
+Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function () {
     Route::post('store', 'CommentController@store')->name('comments.store');
 });
 
@@ -53,7 +58,7 @@ Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function() {
 | Admin 認証不要
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin'], function() {
+Route::group(['prefix' => 'admin'], function () {
     Route::get('login', 'Admin\LoginController@showLoginForm')->name('admin.login');
     Route::post('login', 'Admin\LoginController@login');
 });
@@ -63,7 +68,7 @@ Route::group(['prefix' => 'admin'], function() {
 | Admin ログイン後
 |--------------------------------------------------------------------------
 */
-Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
+Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');
     Route::get('games/create', 'GameController@create')->name('admin.games.create');

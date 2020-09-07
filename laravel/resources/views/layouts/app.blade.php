@@ -30,8 +30,6 @@
     <!-- Production -->
         <!-- favicon -->
         <link rel="shortcut icon" href="{{ secure_asset('logo.png') }}">
-        <!-- Scripts -->
-        <script src="{{ secure_asset('js/app.js') }}" defer></script>
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/layout.css') }}" rel="stylesheet">
@@ -39,19 +37,20 @@
     <!-- Local -->
         <!-- favicon -->
         <link rel="shortcut icon" href="{{ asset('logo.png') }}">
-        <!-- Scripts -->
-        <script src="{{ asset('js/app.js') }}" defer></script>
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     @endif
+
+    <!-- Scripts -->
+    <script src="{{ mix('js/app.js') }}" defer></script>
 
 </head>
 <body>
     <div id="app">
         @include('layouts.nav')
         <main>
-            <!-- argicles_store,update flash message -->
+            <!-- flash message -->
             @if (session('flash_message'))
                 <div class="flash_message bg-success text-center py-3 my-0">
                     {{ session('flash_message') }}
