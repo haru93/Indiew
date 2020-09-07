@@ -28,7 +28,7 @@ class ArticleController extends Controller
     public function index()
     {
         $articles = Article::orderBy('created_at', 'desc')->paginate(20);
-        
+
         return view('articles.index', compact('articles'));
     }
 
@@ -64,14 +64,14 @@ class ArticleController extends Controller
 
         $now = date_format(Carbon::now(), 'YmdHis');
         $name = $imagefile->getClientOriginalName();
-        $storeName=$now."_".$name;
+        $storeName = $now . "_" . $name;
 
         $image = Image::make($imagefile)->heighten(562, function ($constraint) {
             $constraint->upsize();
         });
-        
-        if(app('env') == 'production') {
-            Storage::disk('s3')->put($storeName, (string) $image->encode(),'public');
+
+        if (app('env') == 'production') {
+            Storage::disk('s3')->put($storeName, (string) $image->encode(), 'public');
             $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storeName)];
         } else {
             Storage::disk('public')->put($storeName, (string) $image->encode());
@@ -123,14 +123,14 @@ class ArticleController extends Controller
 
         $now = date_format(Carbon::now(), 'YmdHis');
         $name = $imagefile->getClientOriginalName();
-        $storeName=$now."_".$name;
+        $storeName = $now . "_" . $name;
 
         $image = Image::make($imagefile)->heighten(562, function ($constraint) {
             $constraint->upsize();
         });
-        
-        if(app('env') == 'production') {
-            Storage::disk('s3')->put($storeName, (string) $image->encode(),'public');
+
+        if (app('env') == 'production') {
+            Storage::disk('s3')->put($storeName, (string) $image->encode(), 'public');
             $data = ['title' => $post['title'], 'body' => $post['body'], 'game_id' => $post['game_id'], 'image' => Storage::disk('s3')->url($storeName)];
         } else {
             Storage::disk('public')->put($storeName, (string) $image->encode());

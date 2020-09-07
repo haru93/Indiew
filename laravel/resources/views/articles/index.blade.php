@@ -1,6 +1,18 @@
 @extends('layouts.app')
 
 @section('content')
+    <div class="top-image">
+        <div class="jumbotron jumbotron-fluid mb-0" style="background-image: url('{{asset('controller.jpg')}}');">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>IndieView</h1>
+                        <p>インディーズゲームの景色を共有して魅力を紹介するサイト</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid">
         @foreach ($articles->chunk(2) as $chunk)
             <div class="row justify-content-left image-col">

@@ -77,3 +77,22 @@ footer {
 .image-col .col-md-4,.col-md-6 {
     padding: 0;
 }
+
+.top-image .jumbotron {
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 300px;
+    color: white;
+    position: relative;
+}
+
+.top-image .jumbotron::before {
+    content: ' ';
+    background-color: rgba(0,0,0,.4);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
