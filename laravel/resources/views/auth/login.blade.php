@@ -52,6 +52,11 @@
                                         <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-danger">
                                             <i class="fab fa-google mr-1"></i>Googleでログイン
                                         </a>
+                                        @if (Route::has('password.request'))
+                                            <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                {{ __('messages.Forgot Your Password?') }}
+                                            </a>
+                                        @endif
                                     </div>
                                 </div>
                         </form>
