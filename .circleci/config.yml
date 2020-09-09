@@ -3,19 +3,19 @@ jobs:
   build:
     docker:
       - image: circleci/php:7.3-node-browsers
-       - image: circleci/postgres:11.6-alpine
-         environment:
-          POSTGRES_DB: default
-          POSTGRES_USER: default
-          POSTGRES_PASSWORD: secret
-         environment:
-          APP_ENV: testing
-          DB_CONNECTION: pgsql
-          DB_HOST: localhost
-          DB_PORT: 5432
-          DB_DATABASE: default
-          DB_USERNAME: default
-          DB_PASSWORD: secret
+      - image: circleci/postgres:11.6-alpine
+        environment:
+        POSTGRES_DB: default
+        POSTGRES_USER: default
+        POSTGRES_PASSWORD: secret
+        environment:
+        APP_ENV: testing
+        DB_CONNECTION: pgsql
+        DB_HOST: localhost
+        DB_PORT: 5432
+        DB_DATABASE: default
+        DB_USERNAME: default
+        DB_PASSWORD: secret
     steps:
       - checkout
       - run:
