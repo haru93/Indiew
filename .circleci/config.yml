@@ -5,6 +5,11 @@ jobs:
       - image: circleci/php:7.3-node-browsers
     steps:
       - checkout
+      - run:
+          name: install php extension gd
+          command:
+            sudo apt-get install -y libpng-dev
+            sudo docker-php-ext-install gd
       - run: composer install -n --prefer-dist
       - run: npm ci
       - run: npm run dev
