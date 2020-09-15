@@ -13,11 +13,21 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <style>body{background-color: lightskyblue;}</style>
+	@if(app('env') == 'production')
+    <!-- Production -->
+        <!-- Scripts -->
+        <script src="{{ secure_asset('js/app.js') }}" defer></script>
+        <!-- Styles -->
+		<link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
+		<style>body{background-color: lightskyblue;}</style>
+    @else
+    <!-- Local -->
+        <!-- Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+        <!-- Styles -->
+		<link href="{{ asset('css/app.css') }}" rel="stylesheet">
+		<style>body{background-color: lightskyblue;}</style>
+	@endif
 	
 </head>
 <body>
