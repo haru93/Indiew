@@ -2,20 +2,16 @@
 
 @section('content')
     <div class="top-image">
-            @if(app('env') == 'production')
-                <div class="jumbotron jumbotron-fluid mb-0" style="background-image: url('{{secure_asset('controller.jpg')}}');">
-            @else
-                <div class="jumbotron jumbotron-fluid mb-0" style="background-image: url('{{asset('controller.jpg')}}');">
-            @endif
-                    <div class="container">
-                        <div class="row">
-                            <div class="col">
-                                <h1>IndieView</h1>
-                                <p>インディーズゲームの景色を共有して魅力を紹介するサイト</p>
-                            </div>
-                        </div>
+        <div class="jumbotron jumbotron-fluid mb-0" style="background-image: url('{{asset('controller.jpg')}}');">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <h1>IndieView</h1>
+                        <p>インディーズゲームの景色を共有して魅力を紹介するサイト</p>
                     </div>
                 </div>
+            </div>
+        </div>
     </div>
     <div class="container-fluid">
         @foreach ($articles->chunk(2) as $chunk)
