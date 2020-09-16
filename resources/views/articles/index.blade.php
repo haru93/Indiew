@@ -10,7 +10,7 @@
                     <div class="container">
                         <div class="row">
                             <div class="col">
-                                <h1>IndieView</h1>
+                                <h1>Indiew</h1>
                                 <p>インディーズゲームの景色を共有して魅力を紹介するサイト</p>
                             </div>
                         </div>
