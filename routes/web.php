@@ -43,6 +43,8 @@ Route::prefix('articles')->name('articles.')->group(function () {
     Route::delete('/{article}/like', 'ArticleController@unlike')->name('unlike')->middleware('auth');
 });
 
+Route::get('privacy', 'ArticleController@privacy')->name('privacy');
+
 Route::group(['prefix' => 'games'], function () {
     Route::get('index', 'GameController@index')->name('games.index');
     Route::get('show/{id}', 'GameController@show')->name('games.show');
