@@ -8,4 +8,4 @@
 
 その場合は、このメールは破棄していただいて結構です。
 
-IndieView({{ url(config('app.url')) }})
+Indiew({{ url(config('app.url')) }})
