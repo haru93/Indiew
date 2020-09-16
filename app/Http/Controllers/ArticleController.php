@@ -174,4 +174,9 @@ class ArticleController extends Controller
             'countLikes' => $article->count_likes,
         ];
     }
+
+    public function privacy()
+    {
+        return view('privacy');
+    }
 }

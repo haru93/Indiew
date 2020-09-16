@@ -33,6 +33,8 @@
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ secure_asset('css/layout.css') }}" rel="stylesheet">
+        <!-- Google Analytics -->
+        @include('layouts.analytics')
     @else
     <!-- Local -->
         <!-- favicon -->
@@ -63,7 +65,8 @@
             @yield('content')
         </main>
         <footer>
-            <small>©️ Indiew</small>
+            <small><a href="{{ route('privacy') }}">プライバシーポリシー</a></small>
+            <p><small>©️Indiew</small></p>
         </footer>
     </div>
 </body>
