@@ -54,6 +54,8 @@ Route::group(['prefix' => 'comments', 'middleware' => 'auth'], function () {
     Route::post('store', 'CommentController@store')->name('comments.store');
 });
 
+Route::get('/tags/{name}', 'TagController@show')->name('tags.show');
+
 
 /*
 |--------------------------------------------------------------------------
