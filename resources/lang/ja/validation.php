@@ -148,11 +148,12 @@ return [
     'attributes' => [
         'name' => 'ユーザー名',
         'email' => 'メールアドレス',
-		'password' => 'パスワード',
-		'title' => 'タイトル',
-		'body' => '本文',
+        'password' => 'パスワード',
+        'title' => 'タイトル',
+        'body' => '本文',
         'image' => '画像',
         'game_id' => '作品名',
+        'tags' => 'タグ',
     ],
 
 ];

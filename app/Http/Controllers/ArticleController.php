@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Article;
 use App\Models\Game;
+use App\Models\Tag;
 use App\Http\Requests\StoreArticleForm;
 use Illuminate\Support\Facades\Storage;
 use Intervention\Image\Facades\Image;
@@ -37,13 +38,18 @@ class ArticleController extends Controller
      *
      * @return \Illuminate\Http\Response
      * 
-     * 登録ゲームをドロップダウンリストに加えるために$gamesを返す。
-     * 
+     * 登録ゲームをドロップダウンリストに加えるためにゲーム情報を返す。
+     * タグの自動保管のためタグ情報を返す。
      */
     public function create()
     {
         $games = Game::all();
-        return view('articles.create', compact('games'));
+
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('articles.create', compact('games', 'allTagNames'));
     }
 
     /**
@@ -79,8 +85,13 @@ class ArticleController extends Controller
         }
 
         $article->user_id = $request->user()->id;
-
         $article->fill($data)->save();
+
+        // タグの登録と判定
+        $request->tags->each(function ($tagName) use ($article) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $article->tags()->attach($tag);
+        });
 
         return redirect('/')->with('flash_message', '投稿が完了しました');
     }
@@ -105,7 +116,16 @@ class ArticleController extends Controller
     public function edit(Article $article)
     {
         $games = Game::all();
-        return view('articles.edit', compact('article', 'games'));
+
+        $tagNames = $article->tags->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('articles.edit', compact('article', 'games', 'tagNames', 'allTagNames'));
     }
 
     /**
@@ -138,6 +158,12 @@ class ArticleController extends Controller
         }
 
         $article->fill($data)->save();
+
+        $article->tags()->detach();
+        $request->tags->each(function ($tagName) use ($article) {
+            $tag = Tag::firstOrCreate(['name' => $tagName]);
+            $article->tags()->attach($tag);
+        });
 
         return redirect('/')->with('flash_message', '更新が完了しました');
     }
