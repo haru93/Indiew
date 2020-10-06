@@ -1,78 +1,76 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Indiew
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
+![image](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/20201007051004_indiew_github.jpeg)
 
-## About Laravel
+## 概要
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+　Laravel で個人製作したポートフォリオです。  
+　NintendoSwitchやPS4を保有するユーザー向けのインディーズゲームの紹介・情報共有サービスとなります。
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## URL
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+[https://indiew.com/](https://indiew.com/)
 
-## Learning Laravel
+ボタンひとつでログインが可能です。  
+ぜひご利用ください。
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## なぜ作成したか
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+　コロナ禍で外出の機会が減っている中、インディーズゲームはハイクオリティかつ低価格な作品が多いため、コスパ良く有意義な時間を過ごすには最適ではないかと考えておりました。  
+　そこで、各ゲームの魅力的な場面を共有し作品を紹介できるサービスがあれば、自宅での過ごし方の可能性の幅を増やすきっかけになるとともに、制作会社への貢献にもなると考え作成にいたりました。
 
-## Laravel Sponsors
+## 使用技術
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+- PHP 7.3.22
+- Laravel 6.18.37
+- Bootstrap
+- Vue.js
+- AWS (EC2, RDS for PostgreSQL, S3, VPC, Route53)
+- Docker/docker-compose
+- CircleCI (CI/CD)
+- Nginx
+- Git, GitHub
+- Google Analytics
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[British Software Development](https://www.britishsoftware.co)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
+## サービス構成図
 
-## Contributing
+![サービス構成図](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/20201007035453_indiew_back.png)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## 機能一覧
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- ユーザーログイン・登録機能
 
-## Security Vulnerabilities
+- ユーザーパスワード再設定機能(SendGridによるメール送信)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+- GoogleによるOAuthログイン機能
 
-## License
+- 管理者マルチログイン機能
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- 投稿に対するCRUD機能
+
+- 投稿に対するコメント登録・削除機能
+
+- 投稿に対するいいね登録・解除機能(Ajaxによる非同期通信)
+
+- 投稿に対するタグ付け機能(タグに関連する投稿一覧表示)
+
+- 投稿に対するカテゴリー機能(ゲーム別に関連する投稿一覧表示)
+
+- 画像投稿機能(InterventionImageによる画像のリサイズ処理)
+
+## 制作で意識した点
+
+- 実際にサービスを公開し、使っていただくことを想定して作ったため、ポリシーの追加・SSL化などセキュリティ強化を意識しました。
+
+- サイズが大きい画像は軽量化(リサイズ)される仕組みとし、訪れたユーザーがストレスなくサイトを閲覧できるよう意識しました。
+
+- マネタイズまで想定し、GoogleAnalyticsを導入の上、アクセス数を管理できるようにしました。
+
+- 実務を想定し、作業用ブランチの作成・リモートへのプッシュを意識してGit運用をしておりました。
+
+## 法的関係性への配慮
+
+- 著作権に配慮し、ユーザーは管理者が登録したゲームへ投稿する仕組みとしました(管理者は制作会社の規約等を確認し登録)。
+
+- プライバシーポリシーを追加しました。
