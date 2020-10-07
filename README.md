@@ -36,6 +36,9 @@
 
 ![サービス構成図](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/20201007035453_indiew_back.png)
 
+## ER図
+
+![ER図](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/202010071704_indiew_erd.png)
 
 ## 機能一覧
 
