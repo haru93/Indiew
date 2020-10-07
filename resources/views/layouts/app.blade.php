@@ -16,7 +16,7 @@
     <meta property="og:type"         content="website">
     <meta property="og:site_name"    content="Indiew">
     <meta property="og:url"          content="https://indiew.com">
-    <meta property="og:image"        content="{{ secure_asset('opg.jpeg') }}">
+    <meta property="og:image"        content="{{ secure_asset('ogp.jpeg') }}">
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card"        content="summary_large_image">
