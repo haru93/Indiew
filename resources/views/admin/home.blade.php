@@ -16,6 +16,7 @@
 
                     <ul>
                         <li><a href="{{ route('admin.games.create') }}">ゲーム作品の登録</a></li>
+                        <li><a href="{{ route('admin.categories.create') }}">カテゴリー名の登録</a></li>
                     </ul>
                 </div>
             </div>
