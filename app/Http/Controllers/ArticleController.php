@@ -44,10 +44,10 @@ class ArticleController extends Controller
                       ->orWhere('body','like','%'.$value.'%');
             }
         };
-        
+
         $query->orderBy('created_at', 'desc');
         $articles = $query->paginate(20);
-
+        
         return view('articles.index', compact('articles'));
     }
 
