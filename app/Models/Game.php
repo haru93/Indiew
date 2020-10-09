@@ -16,6 +16,10 @@ class Game extends Model
         'released_date',
     ];
 
+    protected $dates = [
+        'released_date',
+    ];
+
     public function articles()
     {
         return $this->hasMany('App\Models\Article');
