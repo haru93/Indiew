@@ -146,7 +146,7 @@ return [
     */
 
     'attributes' => [
-        'name' => '名',
+        'name' => 'ユーザー名',
         'email' => 'メールアドレス',
         'password' => 'パスワード',
         'title' => 'タイトル',

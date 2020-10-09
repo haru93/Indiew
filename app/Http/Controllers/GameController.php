@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Game;
-use App\Models\Category;
 use Storage;
 
 class GameController extends Controller
@@ -28,9 +27,7 @@ class GameController extends Controller
      */
     public function create()
     {
-        $categories = Category::all();
-
-        return view('admin.games.create', compact('categories'));
+        return view('admin.games.create');
     }
 
     /**
@@ -42,35 +39,18 @@ class GameController extends Controller
     public function store(Request $request)
     {
         $post = $request->all();
-
-        $game = new Game();
         
         if ($request->hasFile('image')) {
             if(app('env') == 'production') {
                 $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-                $data = ['name' => $post['name'],
-                         'data' => $post['data'],
-                         'image' => Storage::disk('s3')->url($path),
-                         'url' => $post['url'],
-                         'price' => $post['price'],
-                         'category_id' => $post['category_id'],
-                         'released_date' => $post['released_date'],
-                        ];
+                $data = ['name' => $post['name'], 'data' => $post['data'], 'image' => Storage::disk('s3')->url($path)];
             } else {
                 $request->file('image')->store('public');
-                $data = ['name' => $post['name'],
-                         'data' => $post['data'],
-                         'image' => $request->file('image')->hashName(),
-                         'url' => $post['url'],
-                         'price' => $post['price'],
-                         'category_id' => $post['category_id'],
-                         'released_date' => $post['released_date'],
-                        ];
+                $data = ['name' => $post['name'], 'data' => $post['data'], 'image' => $request->file('image')->hashName()];
             }
         }
 
-        $game->fill($data)->save();
-
+        Game::insert($data);
         return redirect('/admin/home');
     }
 

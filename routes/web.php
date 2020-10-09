@@ -77,6 +77,4 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function () {
     Route::get('home', 'Admin\HomeController@index')->name('admin.home');
     Route::get('games/create', 'GameController@create')->name('admin.games.create');
     Route::post('games/store', 'GameController@store')->name('admin.games.store');
-    Route::get('categories/create', 'CategoryController@create')->name('admin.categories.create');
-    Route::post('categories/store', 'CategoryController@store')->name('admin.categories.store');
 });

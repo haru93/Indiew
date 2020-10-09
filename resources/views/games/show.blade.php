@@ -14,10 +14,6 @@
                     <div class="card-body">
                         <h5 class="card-title">{{ $game->name }}</h5>
                         <p class="card-text">{{ $game->data }}</p>
-                        <p class="card-text">{{ $game->url }}</p>
-                        <p class="card-text">{{ $game->price }}</p>
-                        <p class="card-text">{{ $game->category->name }}</p>
-                        <p class="card-text">{{ $game->released_date }}</p>
                     </div>
                 </div>
             </div>

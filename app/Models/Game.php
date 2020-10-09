@@ -10,19 +10,10 @@ class Game extends Model
         'name',
         'data',
         'image',
-        'url',
-        'price',
-        'category_id',
-        'released_date',
     ];
 
     public function articles()
     {
         return $this->hasMany('App\Models\Article');
-    }
-
-    public function category()
-    {
-        return $this->belongsTo('App\Models\Category');
     }
 }
