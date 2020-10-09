@@ -39,10 +39,14 @@
                             <div class="form-group row">
                                 <label for="game_id" class="col-md-4 col-form-label text-md-right">作品名</label>
                                 <select class="form-control col-md-6" name="game_id" id="game_id">
-                                    <option value="" selected>作品名を選択</option>
-                                    @foreach ($games as $game)
-                                    <option value="{{ $game->id }}">{{ $game->name }}</option>
-                                    @endforeach
+                                    @if (!isset($check))
+                                        <option value="" selected>作品名を選択</option>
+                                        @foreach ($games as $game)
+                                        <option value="{{ $game->id }}">{{ $game->name }}</option>
+                                        @endforeach
+                                    @else
+                                        <option value="{{ $check->id }}" selected>{{ $check->name }}</option>
+                                    @endif
                                 </select>
                             </div>
 

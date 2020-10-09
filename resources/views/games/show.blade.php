@@ -15,7 +15,7 @@
                         <h3 class="card-title">{{ $game->name }}</h3>
                         <p class="card-text">{{ $game->data }}</p>
                         <div class="row">
-                            <div class="col-md-8 mt-3">
+                            <div class="col-md-9 mt-3">
                                 <table class="table">
                                     <tbody>
                                         <tr>
@@ -33,9 +33,14 @@
                                     </tbody>
                                 </table>
                             </div>
-                            <div class="col-md-4 mt-3">
+                            <div class="col-md-3 mt-3">
+                                <div class="text-center mb-2">
+                                    <a class="btn btn-danger w-100" href="{{ $game->url }}" target="_blank">My Nintendo Store</a>
+                                </div>
                                 <div class="text-center">
-                                    <a class="btn btn-danger" href="{{ $game->url }}" target="_blank">My Nintendo Store</a>
+                                    <a class="btn btn-primary w-100" href="{{ route('articles.preCreate', ['id' => $game->id]) }}">
+                                        <i class="fas fa-pen"></i>
+                                    この作品の景色を投稿</a>
                                 </div>
                             </div>
                         </div>

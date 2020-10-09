@@ -37,6 +37,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'ArticleController@index')->name('articles.index');
 Route::resource('/articles', 'ArticleController')->except(['index']);
 Route::resource('/articles', 'ArticleController')->only(['create', 'store'])->middleware('auth');
+Route::get('/articles/preCreate/{id}', 'ArticleController@preCreate')->name('articles.preCreate');
 
 Route::prefix('articles')->name('articles.')->group(function () {
     Route::put('/{article}/like', 'ArticleController@like')->name('like')->middleware('auth');

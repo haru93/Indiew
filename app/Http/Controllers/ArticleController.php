@@ -205,4 +205,15 @@ class ArticleController extends Controller
     {
         return view('privacy');
     }
+
+    public function preCreate($id)
+    {
+        $check = Game::find($id);
+
+        $allTagNames = Tag::all()->map(function ($tag) {
+            return ['text' => $tag->name];
+        });
+
+        return view('articles.create', compact('check', 'allTagNames'));
+    }
 }
