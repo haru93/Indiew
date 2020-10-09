@@ -16,6 +16,16 @@
 			<!-- Left Side Of Navbar -->
 			<ul class="navbar-nav mr-auto">
 				<li class="nav-item">
+					<form method="GET" action="{{ route('articles.index') }}">
+						<div class="input-group w-100">
+							<input type="text" class="form-control" name="search" placeholder="キーワードで探す">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+							</span>
+						</div>
+					</form>
+				</li>
+				<li class="nav-item">
 					<a class="nav-link" href="{{ route('games.index') }}">登録ゲーム一覧</a>
 				</li>
 			</ul>
