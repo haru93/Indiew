@@ -20,7 +20,7 @@
 						<div class="input-group w-100">
 							<input type="text" class="form-control" name="search" placeholder="キーワードで探す">
 							<span class="input-group-btn">
-								<button type="submit" class="btn btn-outline-secondary"><i class="fas fa-search"></i></button>
+								<button type="submit" class="btn"><i class="fas fa-search"></i></button>
 							</span>
 						</div>
 					</form>

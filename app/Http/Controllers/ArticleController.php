@@ -23,17 +23,18 @@ class ArticleController extends Controller
 
     /**
      * Display a listing of the resource.
-     *
      * @return \Illuminate\Http\Response
+     * 検索機能
+     * テーブル結合後、imageカラムが重複するためselect以下はその対策
      */
     public function index(Request $request)
     {
         $query = Article::query();
-
-        // 検索フォーム
+        
         $search = $request->input('search');
-        //もしキーワードがあったら
+        
         if($search !== null){
+            $query->join('games','articles.game_id','=','games.id')->select('articles.*');
             //全角スペースを半角に
             $search_split = mb_convert_kana($search,'s');
             //空白で区切る
@@ -41,11 +42,12 @@ class ArticleController extends Controller
             //単語をループで回す
             foreach($search_split2 as $value) {
                 $query->where('title','like','%'.$value.'%')
-                      ->orWhere('body','like','%'.$value.'%');
+                      ->orWhere('body','like','%'.$value.'%')
+                      ->orWhere('name','like','%'.$value.'%');
             }
         };
 
-        $query->orderBy('created_at', 'desc');
+        $query->orderBy('articles.created_at', 'desc');
         $articles = $query->paginate(20);
         
         return view('articles.index', compact('articles'));
