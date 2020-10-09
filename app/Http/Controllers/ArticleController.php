@@ -30,11 +30,11 @@ class ArticleController extends Controller
     public function index(Request $request)
     {
         $query = Article::query();
-        $query->join('games','articles.game_id','=','games.id')->select('articles.*');
-
+        
         $search = $request->input('search');
         
         if($search !== null){
+            $query->join('games','articles.game_id','=','games.id')->select('articles.*');
             //全角スペースを半角に
             $search_split = mb_convert_kana($search,'s');
             //空白で区切る
