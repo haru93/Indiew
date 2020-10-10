@@ -107,3 +107,8 @@ footer {
 .games-search-data p {
     font-size: 0.95rem;
 }
+
+.games-show-image img {
+    height: 500px;
+    object-fit: cover;
+}

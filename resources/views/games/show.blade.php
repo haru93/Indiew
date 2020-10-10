@@ -5,7 +5,7 @@
         <h2 class='mt-3 mb-2'>ゲーム紹介</h2>
         <div class="row justify-content-center mb-3">
             <div class="col">
-                <div class="card">
+                <div class="card games-show-image">
                     @if(app('env') == 'production')
                         <img class='card-img-top' src="{{ $game->image }}">
                     @else
