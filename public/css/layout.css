@@ -112,3 +112,13 @@ footer {
     height: 500px;
     object-fit: cover;
 }
+
+.games-index-sidebar .card {
+    background-color: initial;
+    border: initial;
+}
+
+.games-index-sidebar .card-header {
+    background-color: initial;
+    border-bottom: initial;
+}
