@@ -22,7 +22,7 @@
 					</form>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" href="{{ route('games.index') }}">登録ゲーム一覧</a>
+					<a class="nav-link" href="{{ route('games.index') }}">ゲームで探す</a>
 				</li>
 			</ul>
 
