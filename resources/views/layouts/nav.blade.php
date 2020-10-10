@@ -1,11 +1,7 @@
 <nav class="navbar navbar-expand-md navbar-light shadow-sm">
 	<div class="container-fluid">
 		<a class="navbar-brand" href="{{ url('/') }}">
-			@if(app('env') == 'production')
-				<img class='navbar-logo' src="{{ secure_asset('logo.png') }}">
-			@else
-				<img class='navbar-logo' src="{{ asset('logo.png') }}">
-			@endif
+			<img class='navbar-logo' src="{{ asset('logo.png') }}">
 			{{ config('app.name', 'Indiew') }}
 		</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
