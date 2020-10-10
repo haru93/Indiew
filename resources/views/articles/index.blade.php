@@ -10,6 +10,18 @@
                         <p>インディーズゲームの景色を共有して魅力を紹介するサイト</p>
                     </div>
                 </div>
+                <div class="row mt-3">
+                    <div class="col">
+                        @guest
+                        <form method="POST" action="{{ route('login') }}">
+                            @csrf
+                            <input type="hidden" id="email" name="email" value="user@user.com">
+                            <input type="hidden" id="password" name="password" value="password">
+                            <button type="submit" class="btn btn-success ml-0 mr-3">かんたんログイン</button>
+                        </form>
+				        @endguest
+                    </div>
+                </div>
             </div>
         </div>
     </div>
