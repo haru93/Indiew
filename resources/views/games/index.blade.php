@@ -32,9 +32,10 @@
                                 <a data-toggle="collapse" href="#menu03" aria-controls="#menu03" aria-expanded="false">配信年</a>
                             </li>
                         <ul id="menu03" class="collapse" data-parent="#accordion_menu">
-                            <li><a href="#">リンクサブメニュー3-1</a></li>
-                            <li><a href="#">リンクサブメニュー3-2</a></li>
-                            <li><a href="#">リンクサブメニュー3-3</a></li>
+                            <li><a href="{{ route('games.index', ['year' => '2021']) }}">2021年</a></li>
+                            <li><a href="{{ route('games.index', ['year' => '2020']) }}">2020年</a></li>
+                            <li><a href="{{ route('games.index', ['year' => '2019']) }}">2019年</a></li>
+                            <li><a href="{{ route('games.index', ['year' => '2018']) }}">2018年</a></li>
                         </ul>
                     </ul>
                 </div>   

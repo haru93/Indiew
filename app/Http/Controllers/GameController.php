@@ -22,12 +22,11 @@ class GameController extends Controller
         // 各検索キーの取得
         $category_id = $request->input('id');
         $moneyCheckKey = $request->input('money');
+        $yearCheckKey = $request->input('year');
 
         // カテゴリー検索
         if (!empty($category_id)) {
             $games = Game::where('category_id', $category_id)->get();
-        } else {
-            $games = Game::all();
         }
 
         // 価格帯検索
@@ -46,6 +45,16 @@ class GameController extends Controller
                     $games = Game::where('price', '>=', 3000)->get();
                     break;
             }
+        }
+
+        // 配信年検索
+        if (!empty($yearCheckKey)) {
+            $games = Game::whereYear('released_date', $yearCheckKey)->get();
+        }
+
+        // 検索されていないとき
+        if (!isset($games)) {
+            $games = Game::all();
         }
 
         return view('games.index', compact('games', 'categories'));
