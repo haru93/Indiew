@@ -10,14 +10,26 @@
                         <p>インディーズゲームの景色を共有して魅力を紹介するサイト</p>
                     </div>
                 </div>
-                <div class="row mt-3">
-                    <div class="col">
+                <div class="row justify-content-center mt-5 articles-index-search">
+                    <div class="col-7 mt-5">
+                        <form method="GET" action="{{ route('articles.index') }}">
+                            <div class="input-group w-100 mt-3">
+                                <input type="text" class="form-control search-textbox" name="search" placeholder="景色を検索キーワードで探す">
+                                <span class="input-group-btn">
+                                    <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                </span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row mt-4">
+                    <div class="col articles-index-btn">
                         @guest
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <input type="hidden" id="email" name="email" value="user@user.com">
                             <input type="hidden" id="password" name="password" value="password">
-                            <button type="submit" class="btn btn-success ml-0 mr-3">かんたんログイン</button>
+                            <button type="submit" class="btn btn-primary ml-0 mr-3">かんたんログイン</button>
                         </form>
 				        @endguest
                     </div>

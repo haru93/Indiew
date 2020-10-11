@@ -113,21 +113,29 @@ footer {
     object-fit: cover;
 }
 
-/* .games-index-sidebar .card {
-    background-color: initial;
-    border: initial;
-}
-
-.games-index-sidebar .card-header {
-    background-color: initial;
-    border-bottom: initial;
-} */
-
 .games-index-sidebar ul,li{
     margin: 0;
     padding: 0;
     list-style: none;
 }
+
+.articles-index-search .btn {
+    border-radius: 0 5px 5px 0;
+}
+
+.articles-index-search .search-textbox {
+    border-radius: 5px 0 0 5px;
+}
+
+.articles-index-btn {
+    text-align: center;
+}
+
+.articles-index-btn .btn {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.7rem;
+}
+
 #accordion_menu > li {
     border: #ccc 1px solid;
     margin-bottom: -1px;
@@ -139,7 +147,7 @@ footer {
     display: block;
     padding: 10px;
     text-decoration: none;
-  position: relative;
+    position: relative;
 }
 #accordion_menu a[data-toggle="collapse"]:hover{
     background: #e7e7e7;

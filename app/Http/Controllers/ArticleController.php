@@ -48,7 +48,7 @@ class ArticleController extends Controller
         };
 
         $query->orderBy('articles.created_at', 'desc');
-        $articles = $query->paginate(20);
+        $articles = $query->paginate(50);
         
         return view('articles.index', compact('articles'));
     }
