@@ -14,11 +14,21 @@ class GameController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $games = Game::all();
+        // サイドバー用のカテゴリ情報をソートし取得
+        $categories = Category::orderBy('name', 'asc')->get();
 
-        return view('games.index', compact('games'));
+        // カテゴリの選択情報が存在した場合の処理
+        $category_id = $request->input('id');
+
+        if (!empty($category_id)) {
+            $games = Game::where('category_id', $category_id)->get();
+        } else {
+            $games = Game::all();
+        }
+
+        return view('games.index', compact('games', 'categories'));
     }
 
     /**

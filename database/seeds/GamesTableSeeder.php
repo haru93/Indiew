@@ -17,7 +17,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'HollowKnight_games.jpg',
             'url' => 'https://store-jp.nintendo.com/list/software/70010000003209.html',
             'price' => 1480,
-            'category_id' => 1,
+            'category_id' => 3,
             'released_date' => '2018-06-13',
         ]);
 
@@ -37,7 +37,7 @@ class GamesTableSeeder extends Seeder
             'image' => 'UntitledGoose_games.jpg',
             'url' => 'https://store-jp.nintendo.com/list/software/70010000014142.html',
             'price' => 1980,
-            'category_id' => 1,
+            'category_id' => 3,
             'released_date' => '2019-09-20',
         ]);
     }

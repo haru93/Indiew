@@ -15,11 +15,11 @@
                             <a data-toggle="collapse" href="#menu01" aria-controls="#menu01" aria-expanded="false">カテゴリー</a>
                         </li>
                         <ul id="menu01" class="collapse" data-parent="#accordion_menu">
-                            <li><a href="#">リンクサブメニュー1-1</a></li>
-                            <li><a href="#">リンクサブメニュー1-2</a></li>
-                            <li><a href="#">リンクサブメニュー1-3</a></li>
+                            @foreach ($categories as $category)
+                            <li><a href="{{ route('games.index', ['id' => $category->id]) }}">{{ $category->name }}</a></li>
+                            @endforeach
                         </ul>
-                            <li>
+                            {{-- <li>
                                 <a data-toggle="collapse" href="#menu02" aria-controls="#menu02" aria-expanded="false">価格</a>
                             </li>
                         <ul id="menu02" class="collapse" data-parent="#accordion_menu">
@@ -34,7 +34,7 @@
                             <li><a href="#">リンクサブメニュー3-1</a></li>
                             <li><a href="#">リンクサブメニュー3-2</a></li>
                             <li><a href="#">リンクサブメニュー3-3</a></li>
-                        </ul>
+                        </ul> --}}
                     </ul>
                 </div>   
             </div>
