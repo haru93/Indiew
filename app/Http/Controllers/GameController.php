@@ -19,13 +19,33 @@ class GameController extends Controller
         // サイドバー用のカテゴリ情報をソートし取得
         $categories = Category::orderBy('name', 'asc')->get();
 
-        // カテゴリの選択情報が存在した場合の処理
+        // 各検索キーの取得
         $category_id = $request->input('id');
+        $moneyCheckKey = $request->input('money');
 
+        // カテゴリー検索
         if (!empty($category_id)) {
             $games = Game::where('category_id', $category_id)->get();
         } else {
             $games = Game::all();
+        }
+
+        // 価格帯検索
+        if (!empty($moneyCheckKey)) {
+            switch (true) {
+                case $moneyCheckKey == 'low':
+                    $games = Game::where('price', '<', 1000)->get();
+                    break;
+                case $moneyCheckKey == 'middle-low':
+                    $games = Game::where('price', '>=', 1000)->where('price', '<', 2000)->get();
+                    break;
+                case $moneyCheckKey == 'middle-high':
+                    $games = Game::where('price', '>=', 2000)->where('price', '<', 3000)->get();
+                    break;
+                case $moneyCheckKey == 'high':
+                    $games = Game::where('price', '>=', 3000)->get();
+                    break;
+            }
         }
 
         return view('games.index', compact('games', 'categories'));
