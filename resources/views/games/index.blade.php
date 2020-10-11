@@ -59,6 +59,7 @@
                     </div>
                     <div class="col-lg-2 text-right">
                         <h6>{{ number_format($game->price) }}円(税込)</h6>
+                        <span class="badge badge-secondary">{{ $game->category->name }}</span>
                     </div>
                     <a href="{{ route('games.show', ['id' => $game->id]) }}" class="stretched-link"></a>
                 </div>
