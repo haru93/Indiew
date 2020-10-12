@@ -7,6 +7,22 @@
                 <h2>ゲーム一覧</h2>
             </div>
         </div>
+        <div class="row justify-content-end mb-2">
+            <div class="col-md-3">
+                <form method="GET" action="{{ route('games.index') }}" onchange="submit(this.form);">
+                    <div class="form-group">
+                        <label for="sort_key"></label>
+                        <select class="form-control" name="sort_key" id="sort_key">
+                            <option value="">並びかえ</option>
+                            <option value="released_date_key1" @if($sort_key=='released_date_key1') selected @endif>配信が新しい順</option>
+                            <option value="released_date_key2" @if($sort_key=='released_date_key2') selected @endif>配信が古い順</option>
+                            <option value="price_key1" @if($sort_key=='price_key1') selected @endif>価格が安い順</option>
+                            <option value="price_key2" @if($sort_key=='price_key2') selected @endif>価格が高い順</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+        </div>
         <div class="row">
             <div class="col-lg-3">
                 <div class="games-index-sidebar mb-4">

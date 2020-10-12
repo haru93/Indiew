@@ -23,6 +23,7 @@ class GameController extends Controller
         $category_id = $request->input('id');
         $moneyCheckKey = $request->input('money');
         $yearCheckKey = $request->input('year');
+        $sort_key = $request->input('sort_key');
 
         // カテゴリー検索
         if (!empty($category_id)) {
@@ -52,12 +53,30 @@ class GameController extends Controller
             $games = Game::whereYear('released_date', $yearCheckKey)->get();
         }
 
-        // 検索されていないとき
+        // フィルタ機能
+        if (!empty($sort_key)) {
+            switch ($sort_key) {
+                case 'released_date_key1':
+                    $games = Game::orderBy('released_date', 'desc')->get();
+                    break;
+                case 'released_date_key2':
+                    $games = Game::orderBy('released_date', 'asc')->get();
+                    break;
+                case 'price_key1':
+                    $games = Game::orderBy('price', 'asc')->get();
+                    break;
+                case 'price_key2':
+                    $games = Game::orderBy('price', 'desc')->get();
+                    break;
+            }
+        }
+
+        // 検索されていなければ$gamesは宣言されていないため
         if (!isset($games)) {
             $games = Game::all();
         }
 
-        return view('games.index', compact('games', 'categories'));
+        return view('games.index', compact('games', 'categories'))->with('sort_key', $sort_key);
     }
 
     /**
