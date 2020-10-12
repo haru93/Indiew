@@ -16,6 +16,7 @@ class GameController extends Controller
      */
     public function index(Request $request)
     {
+        // dd($request);
         // サイドバー用のカテゴリ情報をソートし取得
         $categories = Category::orderBy('name', 'asc')->get();
 
@@ -76,7 +77,9 @@ class GameController extends Controller
             $games = Game::all();
         }
 
-        return view('games.index', compact('games', 'categories'))->with('sort_key', $sort_key);
+        // return view('games.index', compact('games', 'categories'))->with('sort_key', $sort_key);
+        // return view('games.index', compact('games', 'categories' ,'sort_key'));
+        return view('games.index', compact('games', 'categories' ,'sort_key', 'category_id' , 'moneyCheckKey', 'yearCheckKey'));
     }
 
     /**

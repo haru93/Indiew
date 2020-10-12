@@ -26,35 +26,57 @@
         <div class="row">
             <div class="col-lg-3">
                 <div class="games-index-sidebar mb-4">
-                    <ul id="accordion_menu">
-                        <li>
-                            <a data-toggle="collapse" href="#menu01" aria-controls="#menu01" aria-expanded="false">カテゴリー</a>
-                        </li>
-                        <ul id="menu01" class="collapse" data-parent="#accordion_menu">
-                            @foreach ($categories as $category)
-                            <li><a href="{{ route('games.index', ['id' => $category->id]) }}">{{ $category->name }}</a></li>
-                            @endforeach
-                        </ul>
-                            <li>
-                                <a data-toggle="collapse" href="#menu02" aria-controls="#menu02" aria-expanded="false">価格帯</a>
-                            </li>
-                        <ul id="menu02" class="collapse" data-parent="#accordion_menu">
-                            <li><a href="{{ route('games.index', ['money' => 'low']) }}">1,000円未満</a></li>
-                            <li><a href="{{ route('games.index', ['money' => 'middle-low']) }}">1,000円以上 2,000円未満</a></li>
-                            <li><a href="{{ route('games.index', ['money' => 'middle-high']) }}">2,000円以上 3,000円未満</a></li>
-                            <li><a href="{{ route('games.index', ['money' => 'high']) }}">3,000円以上</a></li>
-                        </ul>
-                            <li>
-                                <a data-toggle="collapse" href="#menu03" aria-controls="#menu03" aria-expanded="false">配信年</a>
-                            </li>
-                        <ul id="menu03" class="collapse" data-parent="#accordion_menu">
-                            <li><a href="{{ route('games.index', ['year' => '2021']) }}">2021年</a></li>
-                            <li><a href="{{ route('games.index', ['year' => '2020']) }}">2020年</a></li>
-                            <li><a href="{{ route('games.index', ['year' => '2019']) }}">2019年</a></li>
-                            <li><a href="{{ route('games.index', ['year' => '2018']) }}">2018年</a></li>
-                        </ul>
-                    </ul>
-                </div>   
+                    <div class="accordion" id="accordionExample">
+                        <div class="card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                        カテゴリー
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                @foreach ($categories as $category)
+                                <div class="card-body">
+                                    <a href="{{ route('games.index', ['id' => $category->id]) }}">{{ $category->name }}</a>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingTwo">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        価格帯
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'low']) }}">1,000円未満</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'middle-low']) }}">1,000円以上 2,000円未満</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'middle-high']) }}">2,000円以上 3,000円未満</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'high']) }}">3,000円以上</a></div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header" id="headingThree">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    Collapsible Group Item #3
+                                    </button>
+                                </h5>
+                            </div>
+                            <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2021']) }}">2021年</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2020']) }}">2020年</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2019']) }}">2019年</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2018']) }}">2018年</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-lg-9">
