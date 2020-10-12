@@ -12,12 +12,12 @@
                 <form method="GET" action="{{ route('games.index') }}" onchange="submit(this.form);">
                     <div class="form-group">
                         <label for="sort_key"></label>
-                        <select class="form-control sort" name="sort_key" id="sort_key">
+                        <select class="form-control" name="sort_key" id="sort_key">
                             <option value="">並びかえ</option>
-                            <option value="released_date_key1">配信が新しい順</option>
-                            <option value="released_date_key2">配信が古い順</option>
-                            <option value="price_key1">価格が安い順</option>
-                            <option value="price_key2">価格が高い順</option>
+                            <option value="released_date_key1" @if($sort_key=='released_date_key1') selected @endif>配信が新しい順</option>
+                            <option value="released_date_key2" @if($sort_key=='released_date_key2') selected @endif>配信が古い順</option>
+                            <option value="price_key1" @if($sort_key=='price_key1') selected @endif>価格が安い順</option>
+                            <option value="price_key2" @if($sort_key=='price_key2') selected @endif>価格が高い順</option>
                         </select>
                     </div>
                 </form>
