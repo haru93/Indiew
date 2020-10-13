@@ -76,7 +76,7 @@ class GameController extends Controller
         if (!isset($games)) {
             $games = Game::all();
         }
-
+        
         // return view('games.index', compact('games', 'categories'))->with('sort_key', $sort_key);
         // return view('games.index', compact('games', 'categories' ,'sort_key'));
         return view('games.index', compact('games', 'categories' ,'sort_key', 'category_id' , 'moneyCheckKey', 'yearCheckKey'));
