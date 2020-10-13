@@ -30,7 +30,7 @@
                         <div class="card">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                                    <button class="btn btn-link text-body text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                                         カテゴリー
                                     </button>
                                 </h5>
@@ -38,7 +38,7 @@
                             <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
                                 @foreach ($categories as $category)
                                 <div class="card-body">
-                                    <a href="{{ route('games.index', ['id' => $category->id]) }}">{{ $category->name }}</a>
+                                    <a href="{{ route('games.index', ['id' => $category->id]) }}" class="text-decoration-none text-body">{{ $category->name }}</a>
                                 </div>
                                 @endforeach
                             </div>
@@ -47,32 +47,32 @@
                         <div class="card">
                             <div class="card-header" id="headingTwo">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                    <button class="btn btn-link text-body text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
                                         価格帯
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
-                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'low']) }}">1,000円未満</a></div>
-                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'middle-low']) }}">1,000円以上 2,000円未満</a></div>
-                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'middle-high']) }}">2,000円以上 3,000円未満</a></div>
-                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'high']) }}">3,000円以上</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'low']) }}" class="text-decoration-none text-body">1,000円未満</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'middle-low']) }}" class="text-decoration-none text-body">1,000円以上 2,000円未満</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'middle-high']) }}" class="text-decoration-none text-body">2,000円以上 3,000円未満</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['money' => 'high']) }}" class="text-decoration-none text-body">3,000円以上</a></div>
                             </div>
                         </div>
 
                         <div class="card">
                             <div class="card-header" id="headingThree">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Collapsible Group Item #3
+                                    <button class="btn btn-link text-body text-decoration-none" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                    配信年
                                     </button>
                                 </h5>
                             </div>
                             <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
-                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2021']) }}">2021年</a></div>
-                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2020']) }}">2020年</a></div>
-                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2019']) }}">2019年</a></div>
-                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2018']) }}">2018年</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2021']) }}" class="text-decoration-none text-body">2021年</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2020']) }}" class="text-decoration-none text-body">2020年</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2019']) }}" class="text-decoration-none text-body">2019年</a></div>
+                                <div class="card-body"><a href="{{ route('games.index', ['year' => '2018']) }}" class="text-decoration-none text-body">2018年</a></div>
                             </div>
                         </div>
                     </div>
