@@ -38,7 +38,7 @@
                     <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }} : {{ $article->user->name }}</h6>
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
-                    <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none">{{ $article->game->name }}</a>
+                    <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none text-danger">{{ $article->game->name }}</a>
                     
                     @if(Auth::id() === $article->user_id)
                     <p>
@@ -60,10 +60,10 @@
     </div>
 
     @auth
-    <div class="row justify-content-center mb-3">
+    <div class="row justify-content-center mb-0">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body pb-0">
                     <form method="POST" action="{{ route('comments.store') }}">
                         @csrf
                         <input name="article_id" type="hidden" value="{{ $article->id }}" >
@@ -73,7 +73,7 @@
                                 <input type="text" class='description form-control rounded-0' name='body' placeholder='コメント'>
                             </div>
                             <div class="col-1 pl-0">
-                                <button type="submit" class="btn btn-primary h-100 rounded-0"><i class="far fa-comment"></i></button>
+                                <button type="submit" class="btn btn-success h-100 rounded-0"><i class="far fa-comment"></i></button>
                             </div>
                         </div>
                     </form>
@@ -86,9 +86,9 @@
     <div class="row justify-content-center mb-3">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-body">
+                <div class="card-body pt-0">
                     @forelse ($article->comments()->orderBy('created_at', 'desc')->get() as $comment)
-                    <div class="border-top p-4">
+                    <div class="border-bottom p-4">
                         <h6 class="card-subtitle mb-2 text-muted">{{ $comment->created_at->format('Y.m.d') }} : {{ $comment->user->name }}</h6>
                         <h5>{{ $comment->body }}</h5>
                     </div>
