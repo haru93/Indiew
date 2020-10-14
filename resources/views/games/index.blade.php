@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row mt-5 mb-4">
+        <div class="row mt-5">
             <div class="col">
                 <h2>ゲーム一覧</h2>
             </div>
