@@ -34,13 +34,12 @@
                                 </table>
                             </div>
                             <div class="col-md-3 mt-3">
-                                <div class="text-center mb-2">
-                                    <a class="btn btn-danger w-100" href="{{ $game->url }}" target="_blank">My Nintendo Store</a>
+                                <div class="text-center mb-3">
+                                    <a class="btn btn-success w-100" href="{{ route('articles.preCreate', ['id' => $game->id]) }}">
+                                    この作品の景色を投稿する</a>
                                 </div>
                                 <div class="text-center">
-                                    <a class="btn btn-primary w-100" href="{{ route('articles.preCreate', ['id' => $game->id]) }}">
-                                        <i class="fas fa-pen"></i>
-                                    この作品の景色を投稿</a>
+                                    <a class="btn btn-danger w-100" href="{{ $game->url }}" target="_blank">My Nintendo Store</a>
                                 </div>
                             </div>
                         </div>
