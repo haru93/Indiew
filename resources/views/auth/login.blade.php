@@ -17,16 +17,16 @@
                     </div>
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        <div class="form-group row justify-content-center">
+                        <div class="form-group row justify-content-center mt-0 mb-0">
                             <div class="col-10 col-md-8">
                                 <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-danger w-100">
                                     <i class="fab fa-google mr-2"></i>Googleでログイン
                                 </a>
                             </div>
                         </div>
-                        <div class="row">
+                        <div class="row m-4">
                             <div class="col">
-                                <p class="text-secondary">- または -</p>
+                                <p class="text-secondary m-0">- または -</p>
                             </div>
                         </div>
                         <div class="form-group row justify-content-center">
@@ -39,7 +39,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row justify-content-center">
+                            <div class="form-group row justify-content-center mb-0">
                                 <div class="col-10 col-md-8">
                                     <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('messages.Password') }}">
                                     @error('password')
@@ -49,9 +49,9 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row justify-content-center">
+                            <div class="form-group row justify-content-center m-0">
                                 <div class="col-10 col-md-8">
-                                    <button type="submit" class="btn btn-success">
+                                    <button type="submit" class="btn btn-success m-4">
                                         {{ __('messages.Login') }}
                                     </button>
                                 </div>
@@ -66,7 +66,7 @@
                             <div class="form-group row justify-content-center">
                                 <div class="col-10 col-md-8">
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link text-decoration-none" href="{{ route('password.request') }}">
+                                <a class="btn btn-link text-decoration-none pt-0" href="{{ route('password.request') }}">
                                     {{ __('messages.Forgot Your Password?') }}
                                 </a>
                                 @endif
