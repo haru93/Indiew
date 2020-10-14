@@ -16,7 +16,7 @@
                         <div class="input-group w-100 mt-3">
                             <input type="text" class="form-control search-textbox" name="search" placeholder="景色を検索キーワードで探す">
                             <span class="input-group-btn">
-                                <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
+                                <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
                             </span>
                         </div>
                     </form>
