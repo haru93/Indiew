@@ -108,15 +108,14 @@ footer {
     font-size: 0.95rem;
 }
 
-.games-show-image img {
-    height: 500px;
-    object-fit: cover;
-}
-
 .games-index-sidebar ul,li{
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+.games-show-card .card {
+    background-color: initial;
 }
 
 .articles-index-search .btn {
@@ -139,4 +138,8 @@ footer {
 .articles-show-card .card {
     background-color: initial;
     border: initial;
+}
+
+.articles-show-card img {
+    object-fit: contain;
 }

@@ -3,12 +3,12 @@
 @section('content')
 <div class="container articles-show-card">
     <div class="row justify-content-center mt-5 mb-3">
-        <div class="col-md-8">
+        <div class="col-lg-8">
             <div class="card">
                 @if(app('env') == 'production')
-                <img class='card-img-top' src="{{ $article->image }}">
+                <img src="{{ $article->image }}" height="400" class="w-auto">
                 @else
-                <img class='card-img-top' src="{{ asset('storage/'.$article->image) }}">
+                <img src="{{ asset('storage/'.$article->image) }}" height="400" class="w-auto">
                 @endif
                 <div class="card-body pt-0 pb-0 pl-3">
                     <div class="card-text text-right">
@@ -93,7 +93,7 @@
                         <h5>{{ $comment->body }}</h5>
                     </div>
                     @empty
-                    コメントはまだありません
+                    <p class="p-3">コメントはまだありません</p>
                     @endforelse
                 </div>
             </div>
