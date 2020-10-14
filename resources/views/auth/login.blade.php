@@ -1,18 +1,37 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container">
-        <div class="row justify-content-center mt-3">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">{{ __('messages.Login') }}</div>
-                    <div class="card-body">
-                        <form method="POST" action="{{ route('login') }}">
-                            @csrf
-                            <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('messages.E-Mail Address') }}</label>
-                                <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+<div class="container">
+    <div class="row justify-content-center mt-5">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-body text-center">
+                    <p class="text-muted">Indiew</p>
+                    <div class="m-3">
+                        <img src="{{ asset('logo.png') }}" height="80">
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <p class="text-center h2 p-4">{{ __('messages.Login') }}</p>
+                        </div>
+                    </div>
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="form-group row justify-content-center">
+                            <div class="col-10 col-md-8">
+                                <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-danger w-100">
+                                    <i class="fab fa-google mr-2"></i>Googleでログイン
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <p class="text-secondary">- または -</p>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center">
+                                <div class="col-10 col-md-8">
+                                    <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus placeholder="{{ __('messages.E-Mail Address') }}">
                                     @error('email')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -20,10 +39,9 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('messages.Password') }}</label>
-                                <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                            <div class="form-group row justify-content-center">
+                                <div class="col-10 col-md-8">
+                                    <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password" placeholder="{{ __('messages.Password') }}">
                                     @error('password')
                                         <span class="invalid-feedback" role="alert">
                                             <strong>{{ $message }}</strong>
@@ -31,24 +49,24 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <button type="submit" class="btn btn-primary w-75">
+                            <div class="form-group row justify-content-center">
+                                <div class="col-10 col-md-8">
+                                    <button type="submit" class="btn btn-success">
                                         {{ __('messages.Login') }}
                                     </button>
                                 </div>
                             </div>
-                            <div class="form-group mb-0">
+                            {{-- <div class="form-group mb-0">
                                 <div class="col-md-6 offset-md-4">
-                                    <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-danger w-75">
-                                        <i class="fab fa-google mr-1"></i>Googleでログイン
+                                    <a href="{{ route('login.{provider}', ['provider' => 'twitter']) }}" class="btn btn-info text-white w-75">
+                                        <i class="fab fa-twitter mr-1"></i>Twitterでログイン
                                     </a>
                                 </div>
-                            </div>
-                            <div class="form-group mb-0">
-                                <div class="col-md-6 offset-md-4">
+                            </div> --}}
+                            <div class="form-group row justify-content-center">
+                                <div class="col-10 col-md-8">
                                 @if (Route::has('password.request'))
-                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                <a class="btn btn-link text-decoration-none" href="{{ route('password.request') }}">
                                     {{ __('messages.Forgot Your Password?') }}
                                 </a>
                                 @endif
