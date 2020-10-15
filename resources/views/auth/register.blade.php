@@ -19,6 +19,13 @@
                         @csrf
                         <div class="form-group row justify-content-center mt-0 mb-0">
                             <div class="col-10 col-md-8">
+                                <a href="{{ route('login.{provider}', ['provider' => 'twitter']) }}" class="btn btn-info text-white w-100 mb-1">
+                                    <i class="fab fa-twitter mr-2"></i>Twitterで登録
+                                </a>
+                            </div>
+                        </div>
+                        <div class="form-group row justify-content-center mt-0 mb-0">
+                            <div class="col-10 col-md-8">
                                 <a href="{{ route('login.{provider}', ['provider' => 'google']) }}" class="btn btn-danger w-100">
                                     <i class="fab fa-google mr-2"></i>Googleアカウントで登録
                                 </a>
