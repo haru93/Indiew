@@ -54,7 +54,11 @@ class LoginController extends Controller
      */
     public function handleProviderCallback(Request $request, string $provider)
     {
-        $providerUser = Socialite::driver($provider)->stateless()->user();
+        if ($provider != 'twitter') {
+            $providerUser = Socialite::driver($provider)->stateless()->user();
+        } else {
+            $providerUser = Socialite::driver($provider)->userFromTokenAndSecret(env('TWITTER_ACCESS_TOKEN'), env('TWITTER_ACCESS_TOKEN_SECRET'));
+        }
 
         $user = User::where('email', $providerUser->getEmail())->first();
 
@@ -63,7 +67,7 @@ class LoginController extends Controller
             return $this->sendLoginResponse($request);
         }
         /**
-         * Googleアカウントから取得したメールアドレスが本教材のWebサービスの登録済みユーザーの中に存在しなかった場合
+         * 登録済みユーザーの中に存在しなかった場合
          */
         return redirect()->route('register.{provider}', [
             'provider' => $provider,

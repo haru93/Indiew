@@ -15,6 +15,9 @@
 							@if($provider == 'google')
 							<i class="fab fa-google text-danger fa-3x py-4"></i>
 							<p class="text-center h3 mt-2">Googleアカウントで</p>
+							@else
+							<i class="fab fa-twitter text-info fa-3x py-4"></i>
+							<p class="text-center h3 mt-2">Twitterアカウントで</p>
 							@endif
 							<p class="text-center h2 p-4">{{ __('messages.Register') }}</p>
 						</div>
