@@ -10,6 +10,21 @@
                 @else
                 <img src="{{ asset('storage/'.$article->image) }}" height="400" class="w-auto">
                 @endif
+
+                @if(Auth::id() === $article->user_id)
+                <div class="card-body pt-1">
+                    <div class="row justify-content-end">
+                        <div class="btn-group">
+                            <a class="btn btn-outline-primary rounded-0" href="{{ route('articles.edit', compact('article')) }}" role="button"><i class="fas fa-pen"></i></a>
+                            <form method="POST" action="{{ route('articles.destroy', compact('article')) }}">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-outline-danger rounded-0"><i class="fas fa-trash"></i></button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                @endif
                 <div class="card-body pt-0 pb-0 pl-3">
                     <div class="card-text text-right">
                         <article-like
@@ -25,11 +40,11 @@
                 @if($loop->first)
                 <div class="card-body pt-0 pb-4 pl-3">
                     <div class="card-text line-height">
-                @endif
-                    <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
-                        {{ $tag->name }}
-                    </a>
-                @if($loop->last)
+                    @endif
+                        <a href="{{ route('tags.show', ['name' => $tag->name]) }}" class="border p-1 mr-1 mt-1 text-muted">
+                            {{ $tag->name }}
+                        </a>
+                    @if($loop->last)
                     </div>
                 </div>
                 @endif
@@ -39,21 +54,6 @@
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
                     <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none text-danger">{{ $article->game->name }}</a>
-                    
-                    @if(Auth::id() === $article->user_id)
-                    <p>
-                        <div class="row justify-content-end">
-                            <div class="btn-group">
-                                <a class="btn btn-primary rounded-0" href="{{ route('articles.edit', compact('article')) }}" role="button"><i class="fas fa-pen"></i></a>
-                                <form method="POST" action="{{ route('articles.destroy', compact('article')) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <button type="submit" class="btn btn-danger rounded-0"><i class="fas fa-trash"></i></button>
-                                </form>
-                            </div>
-                        </div>
-                    </p>
-                    @endif
                 </div>
             </div>
         </div>
@@ -61,7 +61,7 @@
 
     @auth
     <div class="row justify-content-center mb-0">
-        <div class="col-md-8">
+        <div class="col-md-8 articles-show-card2">
             <div class="card">
                 <div class="card-body pb-0">
                     <form method="POST" action="{{ route('comments.store') }}">
@@ -84,7 +84,7 @@
     @endauth
 
     <div class="row justify-content-center mb-3">
-        <div class="col-md-8">
+        <div class="col-md-8 articles-show-card2">
             <div class="card">
                 <div class="card-body pt-0">
                     @forelse ($article->comments()->orderBy('created_at', 'desc')->get() as $comment)

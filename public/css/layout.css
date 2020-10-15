@@ -136,10 +136,13 @@ footer {
 }
 
 .articles-show-card .card {
-    background-color: initial;
     border: initial;
 }
 
 .articles-show-card img {
     object-fit: contain;
+}
+
+.articles-show-card2 .card {
+    background-color: initial;
 }
