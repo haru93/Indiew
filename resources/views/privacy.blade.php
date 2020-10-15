@@ -2,7 +2,11 @@
 
 @section('content')
     <div class="container">
-        <h2 class='mt-3 mb-2'>プライバシーポリシー</h2>
+		<div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <h2>プライバシーポリシー</h2>
+            </div>
+        </div>
         <div class="row justify-content-center mt-3 mb-3">
             <div class="col-md-8">
                 <p>当サイトでは、Googleによるアクセス解析ツール「Googleアナリティクス」を使用しています。このGoogleアナリティクスはデータの収集のためにCookieを使用しています。このデータは匿名で収集されており、個人を特定するものではありません。</p>
