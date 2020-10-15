@@ -63,13 +63,6 @@
                                     </button>
                                 </div>
                             </div>
-                            {{-- <div class="form-group mb-0">
-                                <div class="col-md-6 offset-md-4">
-                                    <a href="{{ route('login.{provider}', ['provider' => 'twitter']) }}" class="btn btn-info text-white w-75">
-                                        <i class="fab fa-twitter mr-1"></i>Twitterでログイン
-                                    </a>
-                                </div>
-                            </div> --}}
                             <div class="form-group row justify-content-center">
                                 <div class="col-10 col-md-8">
                                 @if (Route::has('password.request'))
