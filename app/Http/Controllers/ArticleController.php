@@ -124,7 +124,9 @@ class ArticleController extends Controller
      */
     public function show(Article $article)
     {
-        return view('articles.show', compact('article'));
+        $twitter_ogp = 'key';
+
+        return view('articles.show', compact('article', 'twitter_ogp'));
     }
 
     /**

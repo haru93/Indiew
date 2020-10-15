@@ -16,7 +16,13 @@
     <meta property="og:type"         content="website">
     <meta property="og:site_name"    content="Indiew">
     <meta property="og:url"          content="https://indiew.com">
-    <meta property="og:image"        content="{{ secure_asset('ogp.jpeg') }}">
+
+    @if(empty($twitter_ogp))
+    <meta property="og:image"        content="{{ asset('ogp.jpeg') }}">
+    @else
+    <meta property="og:image"        content="{{ $article->image }}">
+    @endif
+
     <meta property="og:image:width"  content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card"        content="summary_large_image">
