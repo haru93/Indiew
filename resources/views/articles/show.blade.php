@@ -56,7 +56,7 @@
                     <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none text-danger">{{ $article->game->name }}</a>
                 </div>
                 <div class="card-body text-center">
-                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ $article->title }}"  data-hashtags="Indiew" data-url="{{ request()->url() }}" data-show-count="false">
+                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ $article->title }}"  data-hashtags="Indiew" data-url="{{ request()->url() }}" data-show-count="false" data-size="large">
                         Tweet
                     </a>
                     <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
