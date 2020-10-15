@@ -8,7 +8,7 @@ body,
 }
 
 footer {
-    background-color: #BCF8FF;
+    background-color: skyblue;
     text-align: center;
     margin-top: auto;
     padding: 20px;
@@ -20,7 +20,7 @@ footer {
 }
 
 .navbar {
-    background-color: #BCF8FF;
+    background-color: skyblue;
 }
 
 .image-wrapper {
@@ -89,7 +89,7 @@ footer {
 
 .top-image .jumbotron::before {
     content: ' ';
-    background-color: rgba(0,0,0,.4);
+    background-color: rgba(0,0,0,.6);
     position: absolute;
     top: 0;
     right: 0;
