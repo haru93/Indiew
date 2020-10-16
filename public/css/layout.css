@@ -114,11 +114,11 @@ footer {
 }
 
 .articles-index-search .btn {
-    border-radius: 0 5px 5px 0;
+    border-radius: 0 50px 50px 0;
 }
 
 .articles-index-search .search-textbox {
-    border-radius: 5px 0 0 5px;
+    border-radius: 50px 0 0 50px;
 }
 
 .articles-index-btn {
