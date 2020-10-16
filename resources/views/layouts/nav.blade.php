@@ -1,59 +1,47 @@
-<nav class="navbar navbar-expand-md navbar-light shadow-sm">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="{{ url('/') }}">
-			<img class='navbar-logo' src="{{ asset('logo.png') }}">
-			{{ config('app.name', 'Indiew') }}
-		</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<!-- Left Side Of Navbar -->
-			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
-					<a class="nav-link" href="{{ route('games.index') }}">ゲームで探す</a>
-				</li>
-			</ul>
-
-			<!-- Right Side Of Navbar -->
-			<ul class="navbar-nav ml-auto">
-				<!-- Authentication Links -->
-				@auth
-				<li class="nav-item">
-					<a href="{{ route('articles.create') }}" class='nav-link'>景色を投稿する</a>
-				</li>
-				@endauth
-
-				@guest
-					<li class="nav-item">
-						<a class="nav-link" href="{{ route('login') }}">{{ __('messages.Login') }}</a>
-					</li>
-					@if (Route::has('register'))
-						<li class="nav-item">
-							<a class="nav-link" href="{{ route('register') }}">{{ __('messages.Register') }}</a>
-						</li>
-					@endif
-				@else
-					<li class="nav-item dropdown">
-						<a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-							{{ Auth::user()->name }} <span class="caret"></span>
-						</a>
-
-						<div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-							<a class="dropdown-item" href="{{ route('logout') }}"
-								onclick="event.preventDefault();
-												document.getElementById('logout-form').submit();">
-								{{ __('messages.Logout') }}
-							</a>
-
-							<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-								@csrf
-							</form>
-						</div>
-					</li>
-				@endguest
-			</ul>
+<div class="container-fluid ut_bg-skyblue">
+	<div class="row">
+		<div class="col">
+			<div class="p-2">
+				<a href="{{ url('/') }}"><img src="{{ asset('logo.png') }}" height="40"></a>
+			</div>
+		</div>
+		<div class="col text-center">
+			<div class="p-2">
+				<a href="{{ route('games.index') }}" class='btn btn-secondary rounded-pill w-100'>ゲームを探す</a>
+			</div>
+		</div>
+		<div class="col text-center">
+			@auth
+			<div class="p-2 d-inline-block">
+				<a href="{{ route('articles.create') }}" class='btn btn-secondary rounded-pill'>景色を投稿する</a>
+			</div>
+			<div class="p-2 d-inline-block">
+				<a href="{{ route('logout') }}" class='btn btn-secondary rounded-pill'
+					onclick="event.preventDefault();
+									document.getElementById('logout-form').submit();">
+					{{ __('messages.Logout') }}
+				</a>
+				<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+					@csrf
+				</form>
+			</div>
+			@endauth
+			@guest
+			<div class="p-2 d-inline-block">
+				<form method="POST" action="{{ route('login') }}">
+					@csrf
+					<input type="hidden" id="email" name="email" value="test@test.com">
+					<input type="hidden" id="password" name="password" value="password">
+					<button type="submit" class="btn btn-success rounded-pill">かんたんログイン</button>
+				</form>
+			</div>
+			<div class="p-2 d-inline-block">
+				<a href="{{ route('login') }}" class='btn btn-secondary rounded-pill'>{{ __('messages.Login') }}</a>
+			</div>
+			<div class="p-2 d-inline-block">
+				<a href="{{ route('register') }}" class='btn btn-secondary rounded-pill'>{{ __('messages.Register') }}</a>	
+			</div>
+			@endguest
 		</div>
 	</div>
-</nav>
+</div>
