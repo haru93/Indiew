@@ -8,7 +8,10 @@
             </div>
         </div>
         <div class="row justify-content-end mb-3">
-            <div class="col-md-3">
+            <div class="col-lg-3 text-right my-auto">
+                {{ $games->count() }} 件の結果
+            </div>
+            <div class="col-lg-3 offset-lg-6">
                 <form method="GET" action="{{ route('games.index') }}" onchange="submit(this.form);">
                     <div class="form-group">
                         <label for="sort_key"></label>
