@@ -13,11 +13,12 @@
         </div>
     </div>
 </div>
-<div class="row justify-content-center articles-index-search">
-    <div class="col-4">
+<div class="row justify-content-center articles-index-search py-3">
+    <div class="col-4 text-center">
+        <p class="p-0 m-0"><i class="far fa-image mr-2"></i>景色を探す</p>
         <form method="GET" action="{{ route('articles.index') }}">
-            <div class="input-group w-100 py-4 px-2">
-                <input type="text" class="form-control search-textbox" name="search" placeholder="景色を探す">
+            <div class="input-group w-100 px-2">
+                <input type="text" class="form-control search-textbox text-center" name="search">
                 <span class="input-group-btn">
                     <button type="submit" class="btn ut_bg-skyblue text-white"><i class="fas fa-search"></i></button>
                 </span>
