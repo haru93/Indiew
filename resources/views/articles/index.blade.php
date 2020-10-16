@@ -14,7 +14,7 @@
     </div>
 </div>
 <div class="row justify-content-center articles-index-search py-3">
-    <div class="col-4 text-center">
+    <div class="col-4 offset-4 text-center">
         <p class="p-0 m-0"><i class="far fa-image mr-2"></i>景色を探す</p>
         <form method="GET" action="{{ route('articles.index') }}">
             <div class="input-group w-100 px-2">
@@ -24,6 +24,9 @@
                 </span>
             </div>
         </form>
+    </div>
+    <div class="col-4 m-auto">
+        <p class="mt-4 p-0 mb-0">{{ $articles->count() }} 件の結果</p>
     </div>
 </div>
 <div class="container-fluid">
