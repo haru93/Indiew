@@ -7,22 +7,22 @@
             <div class="row">
                 <div class="col">
                     <h1>Indiew</h1>
-                    <p>インディーズゲームの景色を共有して魅力を紹介するサイト</p>
-                </div>
-            </div>
-            <div class="row justify-content-center mt-5 articles-index-search">
-                <div class="col-7 mt-5">
-                    <form method="GET" action="{{ route('articles.index') }}">
-                        <div class="input-group w-100 mt-3">
-                            <input type="text" class="form-control search-textbox" name="search" placeholder="景色を検索キーワードで探す">
-                            <span class="input-group-btn">
-                                <button type="submit" class="btn btn-success"><i class="fas fa-search"></i></button>
-                            </span>
-                        </div>
-                    </form>
+                    <p>Nintendo Switch で遊べるインディーズゲームの景色を投稿して魅力を共有しましょう。</p>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="row justify-content-center articles-index-search">
+    <div class="col-4">
+        <form method="GET" action="{{ route('articles.index') }}">
+            <div class="input-group w-100 py-4 px-2">
+                <input type="text" class="form-control search-textbox" name="search" placeholder="景色を探す">
+                <span class="input-group-btn">
+                    <button type="submit" class="btn ut_bg-skyblue text-white"><i class="fas fa-search"></i></button>
+                </span>
+            </div>
+        </form>
     </div>
 </div>
 <div class="container-fluid">
