@@ -3,7 +3,9 @@
 namespace Tests\Feature;
 
 use App\Models\Article;
+use App\Models\Category;
 use App\Models\User;
+use App\Models\Game;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
@@ -17,8 +19,12 @@ class ArticleTest extends TestCase
      */
     public function testIsLikedByNull()
     {
-        $article = factory(Article::class)->create();
+        // category_gameテーブルのレコードを登録
+        $category = factory(Category::class)->create();
+        $game = factory(Game::class)->create();
+        $game->categories()->attach($category);
 
+        $article = factory(Article::class)->create();
         $result = $article->isLikedBy(null);
 
         $this->assertFalse($result);
@@ -29,6 +35,11 @@ class ArticleTest extends TestCase
      */
     public function testIsLikedByTheUser()
     {
+        // category_gameテーブルのレコードを登録
+        $category = factory(Category::class)->create();
+        $game = factory(Game::class)->create();
+        $game->categories()->attach($category);
+        
         $article = factory(Article::class)->create();
         $user = factory(User::class)->create();
         // likesテーブルのレコードに新規登録
@@ -44,6 +55,11 @@ class ArticleTest extends TestCase
      */
     public function testIsLikedByAnother()
     {
+        // category_gameテーブルのレコードを登録
+        $category = factory(Category::class)->create();
+        $game = factory(Game::class)->create();
+        $game->categories()->attach($category);
+        
         $article = factory(Article::class)->create();
         $user = factory(User::class)->create();
         $another = factory(User::class)->create();

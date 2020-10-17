@@ -28,7 +28,7 @@ class GameController extends Controller
 
         // カテゴリー検索
         if (!empty($category_id)) {
-            $games = Game::where('category_id', $category_id)->get();
+            $games = Category::find($category_id)->games()->orderBy('created_at')->get();
         }
 
         // 価格帯検索
