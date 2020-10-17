@@ -20,8 +20,6 @@ class CreateGamesTable extends Migration
             $table->string('image');
             $table->string('url');
             $table->integer('price');
-            $table->bigInteger('category_id')->unsigned();
-            $table->foreign('category_id')->references('id')->on('categories');
             $table->date('released_date');
             $table->timestamps();
         });

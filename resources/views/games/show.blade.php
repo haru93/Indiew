@@ -5,11 +5,7 @@
     <div class="row justify-content-center mt-5 mb-3">
         <div class="col-lg-8 games-show-card">
             <div class="card">
-                @if(app('env') == 'production')
                 <img class='card-img-top w-100' src="{{ $game->image }}">
-                @else
-                <img class='card-img-top w-100' src="{{ asset('storage/'.$game->image) }}">
-                @endif
                 <div class="card-body">
                     <h3 class="card-title">{{ $game->name }}</h3>
                     <p class="card-text">{{ $game->data }}</p>
@@ -23,7 +19,11 @@
                                     </tr>
                                     <tr>
                                         <th>カテゴリー</th>
-                                        <td>{{ $game->category->name }}</td>
+                                        <td>
+                                            @foreach ($game->categories as $category )
+                                            <p>{{ $category->name }}</p>
+                                            @endforeach
+                                        </td>
                                     </tr>
                                     <tr>
                                         <th>配信日</th>
