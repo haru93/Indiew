@@ -25,8 +25,8 @@ class Game extends Model
         return $this->hasMany('App\Models\Article');
     }
 
-    public function category()
+    public function categories()
     {
-        return $this->belongsTo('App\Models\Category');
+        return $this->belongsToMany('App\Models\Category')->withTimestamps();
     }
 }

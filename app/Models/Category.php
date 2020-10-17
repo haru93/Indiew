@@ -12,6 +12,6 @@ class Category extends Model
 
     public function games()
     {
-        return $this->hasMany('App\Models\Game');
+        return $this->belongsToMany('App\Models\Game')->withTimestamps();
     }
 }

@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class CategoriesTableSeeder extends Seeder
+class CategoryGameTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,32 +11,37 @@ class CategoriesTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('categories')->insert([
-            'name' => 'シミュレーション',
+        DB::table('category_game')->insert([
+            'category_id' => 3,
+            'game_id' => 1,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        DB::table('categories')->insert([
-            'name' => 'アドベンチャー',
+        DB::table('category_game')->insert([
+            'category_id' => 2,
+            'game_id' => 2,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        DB::table('categories')->insert([
-            'name' => 'アクション',
+        DB::table('category_game')->insert([
+            'category_id' => 3,
+            'game_id' => 3,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        DB::table('categories')->insert([
-            'name' => 'RPG',
+        DB::table('category_game')->insert([
+            'category_id' => 5,
+            'game_id' => 4,
             'created_at' => now(),
             'updated_at' => now(),
         ]);
 
-        DB::table('categories')->insert([
-            'name' => 'シューティング',
+        DB::table('category_game')->insert([
+            'category_id' => 1,
+            'game_id' => 4,
             'created_at' => now(),
             'updated_at' => now(),
         ]);

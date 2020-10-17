@@ -18,6 +18,10 @@ footer {
     background-color: skyblue;
 }
 
+.ut_fc-skyblue {
+    color: skyblue;
+}
+
 .image-wrapper {
     position: relative;
 }
