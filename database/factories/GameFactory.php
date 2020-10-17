@@ -8,7 +8,7 @@ use Faker\Generator as Faker;
 
 $factory->define(Game::class, function (Faker $faker) {
     return [
-        'name' => $faker->text(10),
+        'name' => $faker->unique()->text(10),
         'data' => $faker->text(50),
         'image' => $faker->image,
         'url' => $faker->url,
