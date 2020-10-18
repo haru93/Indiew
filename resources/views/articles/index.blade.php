@@ -36,11 +36,7 @@
         <div class="col-md-6">
             <a href="{{ route('articles.show', compact('article')) }}" class="title-link">
                 <div class='image-wrapper'>
-                    @if(app('env') == 'production')
                     <img src="{{ $article->image }}">
-                    @else
-                    <img src="{{ asset('storage/'.$article->image) }}">
-                    @endif
                     <div class="mask">
                         <div class="caption-title">
                             {{ $article->title }}
