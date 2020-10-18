@@ -1,10 +1,10 @@
 body,
 #app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background-color: #F8FEFF;
-  font-family: Hiragino Maru Gothic Pro W4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-color: #F8FEFF;
+    font-family: Hiragino Maru Gothic Pro W4;
 }
 
 footer {
@@ -143,5 +143,9 @@ footer {
 }
 
 .articles-show-card2 .card {
+    background-color: initial;
+}
+
+.tags-show-card .card {
     background-color: initial;
 }
