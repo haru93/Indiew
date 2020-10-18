@@ -73,11 +73,11 @@
                                         2,000円以上 3,000円未満 @if($moneyCheckKey == 'middle-high')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
-                                <div class="card-body">
+                                {{-- <div class="card-body">
                                     <a href="{{ route('games.index', ['money' => 'high']) }}" class="text-decoration-none text-body d-block">
                                         3,000円以上 @if($moneyCheckKey == 'high')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
                                     </a>
-                                </div>
+                                </div> --}}
                             </div>
                         </div>
 
