@@ -5,12 +5,7 @@
     <div class="row justify-content-center mt-5 mb-3">
         <div class="col-lg-8">
             <div class="card">
-                @if(app('env') == 'production')
                 <img src="{{ $article->image }}" height="400" class="w-auto">
-                @else
-                <img src="{{ asset('storage/'.$article->image) }}" height="400" class="w-auto">
-                @endif
-
                 @if(Auth::id() === $article->user_id)
                 <div class="card-body pt-1">
                     <div class="row justify-content-end">

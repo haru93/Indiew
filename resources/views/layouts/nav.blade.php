@@ -19,7 +19,7 @@
 		<div class="col">
 			<nav class="navbar navbar-expand-xl navbar-light p-0">
 				@auth
-				<h4 class="my-auto ml-2">{{ Auth::user()->name }}</h4>
+				<h6 class="my-auto ml-2">{{ Auth::user()->name }}</h6>
 				@endauth
 				<button class="navbar-toggler my-2 ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 					<span class="navbar-toggler-icon"></span>
