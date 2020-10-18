@@ -11,6 +11,7 @@ class ArticlesTableSeeder extends Seeder
      */
     public function run()
     {
+        // 1
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 2,
@@ -21,6 +22,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-08-27 12:00:00'),
         ]);
 
+        // 2
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 1,
@@ -31,6 +33,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-08-28 12:00:00'),
         ]);
 
+        // 3
         DB::table('articles')->insert([
             'user_id' => 2,
             'game_id' => 1,
@@ -41,6 +44,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-08-29 12:00:00'),
         ]);
 
+        // 4
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 3,
@@ -51,6 +55,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-01 12:00:00'),
         ]);
 
+        // 5
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 4,
@@ -61,6 +66,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-02 12:00:00'),
         ]);
 
+        // 6
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 5,
@@ -71,6 +77,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-03 12:00:00'),
         ]);
 
+        // 7
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 6,
@@ -81,6 +88,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-04 12:00:00'),
         ]);
 
+        // 8
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 6,
@@ -91,6 +99,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-05 12:00:00'),
         ]);
 
+        // 9
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 7,
@@ -101,6 +110,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-06 12:00:00'),
         ]);
 
+        // 10
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 8,
@@ -111,6 +121,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-07 12:00:00'),
         ]);
 
+        // 11
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 9,
@@ -121,6 +132,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-08 12:00:00'),
         ]);
 
+        // 12
         DB::table('articles')->insert([
             'user_id' => 2,
             'game_id' => 2,
@@ -131,6 +143,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-12 12:00:00'),
         ]);
 
+        // 13
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 11,
@@ -141,6 +154,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-13 12:00:00'),
         ]);
 
+        // 14
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 10,
@@ -151,6 +165,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-14 12:00:00'),
         ]);
 
+        // 15
         DB::table('articles')->insert([
             'user_id' => 2,
             'game_id' => 9,
@@ -161,6 +176,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-15 12:00:00'),
         ]);
 
+        // 16
         DB::table('articles')->insert([
             'user_id' => 2,
             'game_id' => 6,
@@ -171,6 +187,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-16 12:00:00'),
         ]);
 
+        // 17
         DB::table('articles')->insert([
             'user_id' => 2,
             'game_id' => 7,
@@ -181,6 +198,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-17 12:00:00'),
         ]);
 
+        // 18
         DB::table('articles')->insert([
             'user_id' => 2,
             'game_id' => 8,
@@ -191,6 +209,7 @@ class ArticlesTableSeeder extends Seeder
             'updated_at' => date('2020-10-18 12:00:00'),
         ]);
 
+        // 19
         DB::table('articles')->insert([
             'user_id' => 1,
             'game_id' => 2,
