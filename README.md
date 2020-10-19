@@ -1,6 +1,6 @@
 # Indiew
 
-![image](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/20201007051004_indiew_github.jpeg)
+![image](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/github_image_202010200206.jpeg)
 
 ## 概要
 
