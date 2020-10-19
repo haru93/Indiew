@@ -38,7 +38,7 @@
 
 ## ER図
 
-![ER図](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/202010071704_indiew_erd.png)
+![ER図](https://trip-switch-bucket.s3-ap-northeast-1.amazonaws.com/indiew_erd2_202010200130.png)
 
 ## 機能一覧
 
