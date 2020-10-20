@@ -48,13 +48,17 @@
                     <h6 class="card-subtitle mb-2 text-muted">{{ $article->created_at->format('Y.m.d') }} : {{ $article->user->name }}</h6>
                     <h5 class="card-title">{{ $article->title }}</h5>
                     <p class="card-text">{{ $article->body }}</p>
-                    <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none ut_fc-skyblue">{{ $article->game->name }}</a>
-                </div>
-                <div class="card-body text-center">
-                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ $article->title }}"  data-hashtags="Indiew" data-url="{{ request()->url() }}" data-show-count="false" data-size="large">
-                        Tweet
-                    </a>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="row">
+                        <div class="col-10">
+                            <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none ut_fc-skyblue">{{ $article->game->name }}</a>
+                        </div>
+                        <div class="col-2 text-right">
+                            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ $article->title }}"  data-hashtags="Indiew" data-url="{{ request()->url() }}" data-show-count="false">
+                                Tweet
+                            </a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
