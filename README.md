@@ -14,7 +14,7 @@
 ボタンひとつでログインが可能です。  
 ぜひご利用ください。
 
-![output](https://user-images.githubusercontent.com/60908658/96631812-c7c83e80-1351-11eb-966a-1ad6ad72024f.gif)
+![output5](https://user-images.githubusercontent.com/60908658/96643886-2a760600-1363-11eb-9ad8-0343d394b7d0.gif)
 
 ## なぜ作成したか
 
