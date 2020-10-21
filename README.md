@@ -14,7 +14,9 @@
 ボタンひとつでログインが可能です。  
 ぜひご利用ください。
 
-![output5](https://user-images.githubusercontent.com/60908658/96643886-2a760600-1363-11eb-9ad8-0343d394b7d0.gif)
+## 使用イメージ
+
+![indiew_demo_mv_202010211807_3x_10-640](https://user-images.githubusercontent.com/60908658/96700565-8e7fe500-13ca-11eb-82bc-4d0790410512.gif)
 
 ## なぜ作成したか
 
