@@ -31,7 +31,7 @@
 </div>
 <div class="container-fluid">
     @foreach ($articles->chunk(2) as $chunk)
-    <div class="row justify-content-left image-col">
+    <div class="row justify-content-left image-cover">
         @foreach ($chunk as $article)
         <div class="col-md-6 p-0">
             <a href="{{ route('articles.show', compact('article')) }}" class="title-link">

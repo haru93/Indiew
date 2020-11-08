@@ -28,7 +28,7 @@
         </div>
         <div class="row">
             <div class="col-lg-3">
-                <div class="games-index-sidebar mb-4">
+                <div class="mb-4">
                     <div class="accordion" id="accordionExample">
                         <div class="card">
                             <div class="card-header bg-white" id="headingOne">
@@ -116,11 +116,11 @@
                 @foreach ($games as $game)
                 <div class="row mb-4 position-relative">
                     <div class="col-lg-4">
-                        <div class="games-search-image">
-                            <img class='card-img-top' src="{{ $game->image }}">
+                        <div class="image-cover">
+                            <img class='card-img-top rounded' src="{{ $game->image }}" width="100%" height="180">
                         </div>
                     </div>
-                    <div class="col-lg-6 games-search-data">
+                    <div class="col-lg-6">
                         <h4>{{ $game->name }}</h4>
                         <p>{{ $game->data }}</p>
                     </div>

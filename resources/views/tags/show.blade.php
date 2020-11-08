@@ -3,7 +3,7 @@
 @section('content')
 	<div class="container">
 		<div class="row justify-content-center mb-3 mt-5">
-			<div class="col-md-6 tags-show-card">
+			<div class="col-md-6">
 				<div class="card">
 					<div class="card-body">
 						<h2 class="h4 card-title m-0">{{ $tag->name }}</h2>
@@ -16,7 +16,7 @@
 		</div>
 				
 		<h4 class='mb-2'>関連記事</h4>
-		<div class="row justify-content-left image-col">	
+		<div class="row justify-content-left image-cover">	
 			@foreach($tag->articles as $article)
 				<div class="col-md-4 p-0">
 					<a href="{{ route('articles.show', compact('article')) }}" class="title-link">

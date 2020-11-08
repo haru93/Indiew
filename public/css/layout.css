@@ -7,13 +7,6 @@ body,
     font-family: Hiragino Maru Gothic Pro W4;
 }
 
-footer {
-    background-color: skyblue;
-    text-align: center;
-    margin-top: auto;
-    padding: 20px;
-}
-
 .ut_bg-skyblue {
     background-color: skyblue;
 }
@@ -67,7 +60,7 @@ footer {
     opacity: 1;
 }
 
-.image-col img {
+.image-cover img {
     object-fit: cover;
 }
 
@@ -90,27 +83,6 @@ footer {
     left: 0;
 }
 
-.games-search-image img {
-    height: 180px;
-    width: 100%;
-    object-fit: cover;
-    border-radius: 5px;
-}
-
-.games-search-data p {
-    font-size: 0.95rem;
-}
-
-.games-index-sidebar ul,li{
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-.games-show-card .card {
-    background-color: initial;
-}
-
 .articles-index-search .btn {
     border-radius: 0 50px 50px 0;
 }
@@ -119,27 +91,10 @@ footer {
     border-radius: 50px 0 0 50px;
 }
 
-.articles-index-btn {
-    text-align: center;
-}
-
-.articles-index-btn .btn {
-    padding: 0.4rem 0.6rem;
-    font-size: 0.7rem;
-}
-
 .articles-show-card .card {
     border: initial;
 }
 
 .articles-show-card img {
     object-fit: contain;
-}
-
-.articles-show-card2 .card {
-    background-color: initial;
-}
-
-.tags-show-card .card {
-    background-color: initial;
 }
