@@ -68,13 +68,7 @@ footer {
 }
 
 .image-col img {
-    width: 100%;
-    max-height: 300px;
     object-fit: cover;
-}
-
-.image-col .col-md-4,.col-md-6 {
-    padding: 0;
 }
 
 .top-image .jumbotron {
