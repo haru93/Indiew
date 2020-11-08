@@ -70,7 +70,7 @@
 
             @yield('content')
         </main>
-        <footer>
+        <footer class="text-center mt-auto p-3 ut_bg-skyblue">
             <small><a href="{{ route('privacy') }}" class="text-muted text-decoration-none">プライバシーポリシー</a></small>
             <p><small>©️Indiew</small></p>
         </footer>

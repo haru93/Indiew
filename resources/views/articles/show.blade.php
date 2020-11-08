@@ -66,7 +66,7 @@
 
     @auth
     <div class="row justify-content-center mb-0">
-        <div class="col-md-8 articles-show-card2">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body pb-0">
                     <form method="POST" action="{{ route('comments.store') }}">
@@ -89,7 +89,7 @@
     @endauth
 
     <div class="row justify-content-center mb-3">
-        <div class="col-md-8 articles-show-card2">
+        <div class="col-md-8">
             <div class="card">
                 <div class="card-body pt-0">
                     @forelse ($article->comments()->orderBy('created_at', 'desc')->get() as $comment)

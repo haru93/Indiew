@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center mt-5 mb-3">
-        <div class="col-lg-8 games-show-card">
+        <div class="col-lg-8">
             <div class="card">
                 <img class='card-img-top w-100' src="{{ $game->image }}">
                 <div class="card-body">
@@ -49,7 +49,7 @@
 
     <h4 class='my-4'>関連記事</h4>
     <div class="mb-3">
-        <div class="row justify-content-left image-col">
+        <div class="row justify-content-left image-cover">
             @foreach ($game->articles as $article)
             <div class="col-md-4 p-0">
                 <a href="{{ route('articles.show', compact('article')) }}">
