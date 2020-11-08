@@ -49,12 +49,12 @@
 
     <h4 class='my-4'>関連記事</h4>
     <div class="mb-3">
-        <div class="row justify-content-left image-col pl-3 pl-3">
+        <div class="row justify-content-left image-col">
             @foreach ($game->articles as $article)
-            <div class="col-md-4">
+            <div class="col-md-4 p-0">
                 <a href="{{ route('articles.show', compact('article')) }}">
                     <div class='image-wrapper'>
-                        <img src="{{ $article->image }}" height="200">
+                        <img src="{{ $article->image }}" width="100%" height="200">
                         <div class="mask">
                             <div class="caption-title">{{ $article->title }}</div>
                         </div>
