@@ -42,7 +42,7 @@
                                 @foreach ($categories as $category)
                                 <div class="card-body">
                                     <a href="{{ route('games.index', ['id' => $category->id]) }}" class="text-decoration-none text-body d-block">
-                                        {{ $category->name }} @if($category->id == $category_id)<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        {{ $category->name }} @if($category->id == $category_id)<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
                                 @endforeach
@@ -60,22 +60,22 @@
                             <div id="collapseTwo" class="collapse @if(!empty($moneyCheckKey)) show @else collapsed @endif" aria-labelledby="headingTwo" data-parent="#accordionExample">
                                 <div class="card-body">
                                     <a href="{{ route('games.index', ['money' => 'low']) }}" class="text-decoration-none text-body d-block">
-                                        1,000円未満 @if($moneyCheckKey == 'low')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        1,000円未満 @if($moneyCheckKey == 'low')<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
                                 <div class="card-body">
                                     <a href="{{ route('games.index', ['money' => 'middle-low']) }}" class="text-decoration-none text-body d-block">
-                                        1,000円以上 2,000円未満 @if($moneyCheckKey == 'middle-low')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        1,000円以上 2,000円未満 @if($moneyCheckKey == 'middle-low')<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
                                 <div class="card-body">
                                     <a href="{{ route('games.index', ['money' => 'middle-high']) }}" class="text-decoration-none text-body d-block">
-                                        2,000円以上 3,000円未満 @if($moneyCheckKey == 'middle-high')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        2,000円以上 3,000円未満 @if($moneyCheckKey == 'middle-high')<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
                                 {{-- <div class="card-body">
                                     <a href="{{ route('games.index', ['money' => 'high']) }}" class="text-decoration-none text-body d-block">
-                                        3,000円以上 @if($moneyCheckKey == 'high')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        3,000円以上 @if($moneyCheckKey == 'high')<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div> --}}
                             </div>
@@ -93,17 +93,17 @@
                                 {{-- <div class="card-body"><a href="{{ route('games.index', ['year' => '2021']) }}" class="text-decoration-none text-body d-block">2021年</a></div> --}}
                                 <div class="card-body">
                                     <a href="{{ route('games.index', ['year' => '2020']) }}" class="text-decoration-none text-body d-block">
-                                        2020年 @if($yearCheckKey == '2020')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        2020年 @if($yearCheckKey == '2020')<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
                                 <div class="card-body">
                                     <a href="{{ route('games.index', ['year' => '2019']) }}" class="text-decoration-none text-body d-block">
-                                        2019年 @if($yearCheckKey == '2019')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        2019年 @if($yearCheckKey == '2019')<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
                                 <div class="card-body">
                                     <a href="{{ route('games.index', ['year' => '2018']) }}" class="text-decoration-none text-body d-block">
-                                        2018年 @if($yearCheckKey == '2018')<i class="fas fa-check ut_fc-skyblue fa-lg ml-2"></i>@endif
+                                        2018年 @if($yearCheckKey == '2018')<i class="fas fa-check text-primary fa-lg ml-2"></i>@endif
                                     </a>
                                 </div>
                             </div>

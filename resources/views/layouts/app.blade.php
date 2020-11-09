@@ -38,7 +38,6 @@
         <link rel="shortcut icon" href="{{ secure_asset('logo.png') }}">
         <!-- Styles -->
         <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ secure_asset('css/layout.css') }}" rel="stylesheet">
         <!-- Google Analytics -->
         @include('layouts.analytics')
     @else
@@ -47,7 +46,6 @@
         <link rel="shortcut icon" href="{{ asset('logo.png') }}">
         <!-- Styles -->
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
     @endif
     
     <!-- Scripts -->
@@ -70,7 +68,7 @@
 
             @yield('content')
         </main>
-        <footer class="text-center mt-auto p-3 ut_bg-skyblue">
+        <footer class="text-center mt-auto p-3 bg-primary">
             <small><a href="{{ route('privacy') }}" class="text-muted text-decoration-none">プライバシーポリシー</a></small>
             <p><small>©️Indiew</small></p>
         </footer>
