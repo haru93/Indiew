@@ -1,4 +1,4 @@
-<div class="container-fluid ut_bg-skyblue">
+<div class="container-fluid bg-primary">
 	<div class="row">
 
 		<!-- 左側 -->

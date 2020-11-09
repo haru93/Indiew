@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container articles-show-card">
+<div class="container">
     <div class="row justify-content-center mt-5 mb-3">
         <div class="col-lg-8">
-            <div class="card">
+            <div class="card ut_card-border_ini">
                 <img src="{{ $article->image }}" height="400" class="w-auto">
                 @if(Auth::id() === $article->user_id)
                 <div class="card-body pt-1">
@@ -50,7 +50,7 @@
                     <p class="card-text">{{ $article->body }}</p>
                     <div class="row">
                         <div class="col-10">
-                            <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none ut_fc-skyblue">{{ $article->game->name }}</a>
+                            <a href="{{ route('games.show', ['id' => $article->game_id]) }}" class="card-text text-decoration-none text-primary">{{ $article->game->name }}</a>
                         </div>
                         <div class="col-2 text-right">
                             <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-text="{{ $article->title }}"  data-hashtags="Indiew" data-url="{{ request()->url() }}" data-show-count="false">
@@ -67,7 +67,7 @@
     @auth
     <div class="row justify-content-center mb-0">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card ut_card-border_ini">
                 <div class="card-body pb-0">
                     <form method="POST" action="{{ route('comments.store') }}">
                         @csrf
@@ -90,7 +90,7 @@
 
     <div class="row justify-content-center mb-3">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card ut_card-border_ini">
                 <div class="card-body pt-0">
                     @forelse ($article->comments()->orderBy('created_at', 'desc')->get() as $comment)
                     <div class="border-bottom p-4">
