@@ -107,27 +107,15 @@ class GameController extends Controller
         $game = new Game();
         
         if ($request->hasFile('image')) {
-            if(app('env') == 'production') {
-                $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
-                $data = ['name' => $post['name'],
-                         'data' => $post['data'],
-                         'image' => Storage::disk('s3')->url($path),
-                         'url' => $post['url'],
-                         'price' => $post['price'],
-                         'category_id' => $post['category_id'],
-                         'released_date' => $post['released_date'],
-                        ];
-            } else {
-                $request->file('image')->store('public');
-                $data = ['name' => $post['name'],
-                         'data' => $post['data'],
-                         'image' => $request->file('image')->hashName(),
-                         'url' => $post['url'],
-                         'price' => $post['price'],
-                         'category_id' => $post['category_id'],
-                         'released_date' => $post['released_date'],
-                        ];
-            }
+            $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
+            $data = ['name' => $post['name'],
+                        'data' => $post['data'],
+                        'image' => Storage::disk('s3')->url($path),
+                        'url' => $post['url'],
+                        'price' => $post['price'],
+                        'category_id' => $post['category_id'],
+                        'released_date' => $post['released_date'],
+                    ];
         }
 
         $game->fill($data)->save();
