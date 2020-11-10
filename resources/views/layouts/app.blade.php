@@ -32,21 +32,13 @@
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
 
-    @if(app('env') == 'production')
-    <!-- Production -->
-        <!-- favicon -->
-        <link rel="shortcut icon" href="{{ secure_asset('logo.png') }}">
-        <!-- Styles -->
-        <link href="{{ secure_asset('css/app.css') }}" rel="stylesheet">
-        <!-- Google Analytics -->
-        @include('layouts.analytics')
-    @else
-    <!-- Local -->
-        <!-- favicon -->
-        <link rel="shortcut icon" href="{{ asset('logo.png') }}">
-        <!-- Styles -->
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @endif
+    <!-- favicon -->
+    <link rel="shortcut icon" href="{{ asset('logo.png') }}">
+    
+    <!-- Styles -->
+    <link href="{{ mix('css/app.css') }}" rel="stylesheet">
+    
+    @include('layouts.analytics')
     
     <!-- Scripts -->
     <script src="{{ mix('js/app.js') }}" defer></script>
