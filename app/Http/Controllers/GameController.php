@@ -76,7 +76,7 @@ class GameController extends Controller
         if (!isset($games)) {
             $games = Game::all();
         }
-        
+
         // return view('games.index', compact('games', 'categories'))->with('sort_key', $sort_key);
         // return view('games.index', compact('games', 'categories' ,'sort_key'));
         return view('games.index', compact('games', 'categories' ,'sort_key', 'category_id' , 'moneyCheckKey', 'yearCheckKey'));
@@ -105,7 +105,7 @@ class GameController extends Controller
         $post = $request->all();
 
         $game = new Game();
-        
+
         if ($request->hasFile('image')) {
             $path = Storage::disk('s3')->putFile('/',$post['image'],'public');
             $data = ['name' => $post['name'],
@@ -113,12 +113,13 @@ class GameController extends Controller
                         'image' => Storage::disk('s3')->url($path),
                         'url' => $post['url'],
                         'price' => $post['price'],
-                        'category_id' => $post['category_id'],
                         'released_date' => $post['released_date'],
                     ];
         }
 
         $game->fill($data)->save();
+
+        $game->categories()->sync($post['category_id']);
 
         return redirect('/admin/home');
     }
@@ -132,7 +133,7 @@ class GameController extends Controller
     public function show($id)
     {
         $game = Game::find($id);
-        
+
         return view('games.show', compact('game'));
     }
 
